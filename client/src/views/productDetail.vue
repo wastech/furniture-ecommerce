@@ -3,7 +3,10 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="image">
-          <img src="https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg" alt="" />
+          <img
+            src="https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg"
+            alt=""
+          />
         </div>
 
         <div class="name">
@@ -11,9 +14,7 @@
         </div>
 
         <div class="category">
-          <h5>
-            chiar
-          </h5>
+          <h5>chiar</h5>
         </div>
       </div>
 
@@ -36,14 +37,40 @@
         <div class="icon">
           <i class="fas fa-cart-plus"></i>
 
-          <h3 class="cart" >+ add to cart</h3>
+          <h3 class="cart">+ add to cart</h3>
         </div>
-        
       </div>
     </div>
+
+    <div class="title">
+      <h1> Matched Product</h1>
+    </div>
+    <matchedProduct/>
+
+     <div class="title">
+      <h1> New Product</h1>
+    </div>
+
+    <newProduct/>
+
   </div>
 </template>
+<script>
+import matchedProduct from '@/components/matchedProduct.vue'
+import newProduct from '@/components/newProduct.vue'
+export default {
+  components:{
+    matchedProduct,
+    newProduct
+  }
+}
+</script>
 <style scoped>
+.title h1 {
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  text-shadow: 1px 1px 1px #000;
+}
 img {
   width: 100%;
 }
@@ -67,25 +94,23 @@ img {
   padding: 4px 30px 20px;
   min-height: 380px;
 }
-p{
+p {
   padding: 1.5em;
   font-size: 1em;
 }
-.icon{
+.icon {
   text-align: center;
   font-size: 3em;
- 
- 
 }
-.fas{
- background-color: black;
-padding: 0.6em;
-color: white;
-border-radius: 30%;
+.fas {
+  background-color: black;
+  padding: 0.6em;
+  color: white;
+  border-radius: 30%;
 }
- h3.cart{
+h3.cart {
   padding: 2em;
-  background-color:#f6f5f1;
+  background-color: #f6f5f1;
   border-radius: 1.5em;
   margin-top: -1.5em;
 }
