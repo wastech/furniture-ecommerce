@@ -24,10 +24,6 @@ export default {
         {image:'https://static.toiimg.com/photo/72975551.cms', name:"matteo harmchair", price:'3444'},
         {image:'https://static.toiimg.com/photo/72975551.cms', name:"matteo harmchair", price:'3444'},
         {image:'https://static.toiimg.com/photo/72975551.cms', name:"matteo harmchair", price:'3444'},
-        {image:'https://static.toiimg.com/photo/72975551.cms', name:"matteo harmchair", price:'3444'},
-        {image:'https://static.toiimg.com/photo/72975551.cms', name:"matteo harmchair", price:'3444'},
-        {image:'https://static.toiimg.com/photo/72975551.cms', name:"matteo harmchair", price:'3444'},
-        {image:'https://static.toiimg.com/photo/72975551.cms', name:"matteo harmchair", price:'3444'},
         {image:'https://static.toiimg.com/photo/72975551.cms', name:"matteo harmchair", price:'3444'}
       ]
     }

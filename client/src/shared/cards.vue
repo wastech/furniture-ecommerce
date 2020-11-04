@@ -9,9 +9,9 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
+            <h5 class="card-title">{{item.name}} </h5>
             <p class="card-text">
-              ${{item.price}}
+              ${{item.price}} <span><i class="fas fa-cart-plus"></i></span>
             </p>
           </div>
         </div>
@@ -33,5 +33,9 @@ export default {
 .card-title{
   color: #534b4b;
 }
-
+.fas{
+  font-size: 2em;
+  margin-left: 70%;
+  
+}
 </style>
