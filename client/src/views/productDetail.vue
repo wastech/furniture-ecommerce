@@ -43,7 +43,7 @@
     </div>
 
     <div class="title">
-      <h1> Matched Product</h1>
+      <h1> Similar Product</h1>
     </div>
     <matchedProduct/>
 
