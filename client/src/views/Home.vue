@@ -4,18 +4,25 @@
       <h1>Best offers</h1>
     </div>
    <bestProduct/>
+
+    <div class="title">
+      <h1>New Products</h1>
+    </div>
+   <newProduct/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import bestProduct from '@/components/bestProduct.vue'
+import newProduct from '@/components/newProduct.vue'
 
 export default {
   name: 'Home',
   components: {
    // HelloWorld
-   bestProduct
+   bestProduct,
+   newProduct
   }
 }
 </script>
