@@ -3,17 +3,17 @@
     <h4>Add a New author</h4>
     <div class="row">
       <div class="col-sm-12">
-        <form>
+        <form  @submit.prevent="addTask">
           <!-- Category dropdow -->
 
           <div class="input-group">
             <select
-              class="custom-select form-control shadow mb-2"
+              class=" custom-select shadow mb-2"
               id="inputGroupSelect04"
               aria-label="Example select with button addon"
-              v-model="categoryID"
+              v-model="post.categoryID"
             >
-              <option
+              <option selected
                 v-for="category in categories"
                 :value="category._id"
                 :key="category._id"
@@ -22,16 +22,17 @@
               </option>
             </select>
           </div>
+           
           <!-- Owner Dropdown -->
 
           <div class="input-group mb-2">
             <select
-              class="custom-select form-control shadow"
+              class="custom-select shadow"
               id="inputGroupSelect04"
               aria-label="Example select with button addon"
-              v-model="ownerID"
+              v-model="post.ownerID"
             >
-              <option
+              <option selected
                 v-for="owner in owners"
                 :value="owner._id"
                 :key="owner._id"
@@ -39,48 +40,6 @@
                 {{ owner.name }}
               </option>
             </select>
-          </div>
-
-          <div class="col">
-            <div class="form-group">
-              <label>Top Product</label>
-              <input
-                type="checkbox"
-                class="form-control"
-                id="isTopProduct"
-                name="isTopProduct"
-                placeholder="Password"
-                v-model="post.isTopProduct"
-              />
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="form-group">
-              <label>Best Product</label>
-              <input
-                type="checkbox"
-                class="form-control"
-                id="isBestProduct"
-                name="isBestProduct"
-                placeholder="Password"
-                v-model="post.isBestProduct"
-              />
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="form-group">
-              <label>New Product</label>
-              <input
-                type="checkbox"
-                class="form-control"
-                id="isNewProduct"
-                name="isNewProduct"
-                placeholder="Password"
-                v-model="post.isNewProduct"
-              />
-            </div>
           </div>
 
           <!-- input-->
@@ -128,7 +87,7 @@
               rows="10"
             ></textarea>
           </div>
-          <button type="button" class="btn btn-primary btn-lg btn-block mt-5">
+          <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">
             submit
           </button>
         </form>
@@ -157,14 +116,18 @@ export default {
   methods: {
     
     fetchTasks() {
-      axios.get("http://localhost:3000/api/categories").then((response) => {
+      
+     var url1=  axios.get("http://localhost:3000/api/owners").then((response) => {
+        this.owners = response.data.owners;  });
+         var url2=axios.get("http://localhost:3000/api/categories").then((response) => {
         this.categories = response.data.categories;
-      });
-    },
-    fetchTasks() {
-      axios.get("http://localhost:3000/api/owners").then((response) => {
-        this.owners = response.data.owners;
-      });
+      })
+      Promise.all([url1, url2]).then(function(values){
+  return values
+}).catch(function(err){
+  console.log(err);
+})
+    
     },
 
     addTask() {
