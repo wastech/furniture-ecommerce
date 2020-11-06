@@ -1,92 +1,121 @@
-<template >
-  <main>
-    <div class="container-fluid c-selection">
-      <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-          <div class="a-spacing-top-medium"></div>
-          <h2>Add a new Owner</h2>
-          <form>
-            <!-- name -->
-            <div class="a-spacing-top-medium">
-              <label>Name</label>
-              <input class="a-input-text" style="width: 100%" v-model="name" />
-            </div>
-            <!-- about -->
-            <div class="a-spacing-top-medium">
-              <label>About</label>
-              <input class="a-input-text" style="width: 100%" v-model="about" />
-            </div>
+<template>
+  <div class="container">
+    <h4>Add a New Owner</h4>
+    <div class="row">
+      <div class="col-sm-12">
+        <form @submit.prevent="addTask">
+          <div class="form-group required">
+            <label for="" class="control-label">name</label>
+            <input
+              type="text"
+              class="form-control shadow"
+              aria-describedby="textHelp"
+              v-model="post.name"
+              placeholder="you name ....."
+            />
+          </div>
 
-            <!-- Photo file -->
+          <div class="form-group">
+            <label for="exampleInputFile">photo</label>
+            <input
+              type="text"
+              class="form-control shadow"
+              placeholder="Image URL...."
+              id="exampleInputFile"
+              aria-describedby="fileHelp"
+              v-model="post.photo"
+            />
+            <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>-->
+          </div>
+          <div class="form-group">
+            <label for="" class="control-label">About</label>
+            <textarea
+              class="form-control shadow"
+              id="exampleFormControlTextarea1"
+              v-model="post.about"
+              placeholder="your text...."
+              rows="10"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">
+            submit
+          </button>
+        </form>
 
-            <div class="a-spacing-top-medium">
-              <label style="margin-bottom: 0px;">Add Photo</label>
-              <div class="a-row a-spacing-top-medium">
-                <label>
-                  <i class="fal fa-plus"></i>
-                  <input type="text" v-model="photo" />
-                 
-                </label>
+        <!-- owner-->
+        <div class="row">
+          <div class="col-sm-6 mt-5" v-for="item in items" :key="item.id">
+            <div class="row no-gutters bg-light position-relative">
+              <div class="col-md-6 mb-md-0 p-md-4">
+                <img :src="item.photo" class="w-100" alt="..." />
+              </div>
+              <div class="col-md-6 position-static p-4 pl-md-0">
+                <h5 class="mt-0">{{ item.name }}</h5>
+                <div>
+                  <p>{{ item.about }}</p>
+                </div>
               </div>
             </div>
-            <!-- Buttonn -->
-            <hr />
-            <div class="a-spacing-top-large">
-              <span class="a-button-register">
-                <span class="a-button-inner">
-                  <span class="a-button-text" @click="onAddOwner">Add Owner</span>
-                </span>
-              </span>
-            </div>
-          </form>
-          <br />
-
-          <ul class="list-group-item">
-            <li v-for="owner in owners" :key="owner._id">{{owner.name}}</li>
-          </ul>
+          </div>
         </div>
-        <div class="col-sm-3"></div>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  async asyncData({ $axios }) {
-    try {
-      let owners = $axios.$get("http://localhost:3000/api/owners");
-      const [ownerResponse] = await Promise.all([owners]);
-      console.log(ownerResponse);
-      return {
-        owners: ownerResponse.owners
-      };
-    } catch (err) {
-      console.log(err);
-    }
-  },
   data() {
     return {
-      name: "",
-      about: "",
-      photo:""
+      post: {},
+      items: [],
     };
   },
-  methods: {
 
-   
-    async onAddOwner() {
-      let data = new FormData();
-      data.append("name", this.name);
-      data.append("about", this.about);
-      data.append("photo", this.photo);
-      let result = await this.$axios.$post(
-        "http://localhost:3000/api/owners",
-        data
-      );
-      this.owners.push({name: this.name});
-    }
-  }
+  created() {
+    this.fetchTasks();
+  },
+  methods: {
+    fetchTasks() {
+      axios.get("http://localhost:3000/api/owners").then((response) => {
+        this.items = response.data.owners;
+      });
+    },
+
+    addTask() {
+      axios
+        .post("http://localhost:3000/api/owners", this.post)
+        .then((response) => {
+          //this.type = response.data.categories;
+          this.fetchTasks();
+          console.log(this.post);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>
+
+
+<style scoped>
+.form-group.required .control-label:after {
+  content: "*";
+  color: red;
+}
+h4 {
+  text-align: center;
+}
+p {
+  word-wrap: break-word;
+}
+.form-control {
+  padding: 2em;
+}
+label {
+  font-weight: 900;
+  font-size: large;
+}
+</style>
