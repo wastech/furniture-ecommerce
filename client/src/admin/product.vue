@@ -104,9 +104,7 @@ export default {
     return {
       post: {},
       owners: [],
-      categories:[],
-       categoryID: null,
-      ownerID: null,
+      categories:[]
     };
   },
 

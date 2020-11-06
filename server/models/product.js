@@ -14,10 +14,7 @@ const ProductSchema = new Schema(
     title: String,
     description: String,
     photo: String,
-    price: String,
-    isBestProduct: Boolean,
-    isTopProduct: Boolean,
-    isNewProduct:Boolean
+    price: String
    
    
   }
