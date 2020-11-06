@@ -27,6 +27,16 @@ const routes = [
     path: '/chart',
     name: 'chart',
     component: () => import(/* webpackChunkName: "about" */ '../views/Chart.vue')
+  },
+  {
+    path: '/admin/addcategory',
+    name: 'category',
+    component: () => import(/* webpackChunkName: "about" */ '../admin/category.vue')
+  },
+  {
+    path: '/admin/owner',
+    name: 'owner',
+    component: () => import(/* webpackChunkName: "about" */ '../admin/owner.vue')
   }
 ]
 
