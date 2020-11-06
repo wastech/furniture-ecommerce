@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 //const User = require('./models/user')
 const categoryRoutes = require("./routes/category");
 const ownerRoutes = require("./routes/owner");
+const productRoutes = require("./routes/product");
 
 const cors = require("cors");
 const app = express();
@@ -19,6 +20,7 @@ app.use(cors());
 
 app.use("/api", categoryRoutes);
 app.use("/api", ownerRoutes);
+app.use("/api", productRoutes);
 
 
 mongoose.connect(" mongodb://localhost:27017/furniture",

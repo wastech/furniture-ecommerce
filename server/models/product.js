@@ -15,6 +15,9 @@ const ProductSchema = new Schema(
     description: String,
     photo: String,
     price: String,
+    isBestProduct: Boolean,
+    isTopProduct: Boolean,
+    isNewProduct:Boolean
    
    
   }
