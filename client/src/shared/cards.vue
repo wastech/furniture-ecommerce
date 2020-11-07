@@ -4,7 +4,7 @@
    
         <div class="card" style="width: 100%;">
           <img
-            :src="item.image"
+            :src="item.photo"
             class="card-img-top"
             alt="..."
           />

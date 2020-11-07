@@ -39,4 +39,26 @@ router.get("/categories", async (req, res) => {
   }
 });
 
+// Delete
+
+router.delete('/categories/:id', async (req, res) => {
+  try {
+
+    const deletedProduct = await Category.findOneAndDelete({
+      _id: req.params.id
+    })
+    if (deletedProduct) {
+      res.json({
+        success: true,
+        message: 'Successfully deleted'
+      })
+    }
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: err.message
+    })
+  }
+})
+
 module.exports = router;

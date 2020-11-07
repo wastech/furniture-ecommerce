@@ -35,7 +35,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Chart.vue')
   },
   {
-    path: '/admin/addcategory',
+    path: '/admin/category',
     name: 'category',
     component: () => import(/* webpackChunkName: "about" */ '../admin/category.vue')
   },

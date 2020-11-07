@@ -41,6 +41,28 @@ router.get('/owners', async (req, res) => {
       message: err.message
     })
   }
+});
+
+// Delete
+
+router.delete('/owners/:id', async (req, res) => {
+  try {
+
+    const deletedProduct = await Owner.findOneAndDelete({
+      _id: req.params.id
+    })
+    if (deletedProduct) {
+      res.json({
+        success: true,
+        message: 'Successfully deleted'
+      })
+    }
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: err.message
+    })
+  }
 })
 
 module.exports = router
