@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const categoryRoutes = require("./routes/category");
 const ownerRoutes = require("./routes/owner");
 const productRoutes = require("./routes/product");
+const authRoutes = require("./routes/user");
 
 const cors = require("cors");
 const app = express();
@@ -20,6 +21,7 @@ app.use(cors());
 
 app.use("/api", categoryRoutes);
 app.use("/api", ownerRoutes);
+app.use("/api", authRoutes);
 app.use("/api", productRoutes);
 
 

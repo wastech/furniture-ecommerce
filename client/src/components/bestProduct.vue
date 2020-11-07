@@ -30,6 +30,12 @@ export default {
         {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'3444'},
         {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'3444'},
        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/S/i/Single-Sofa-Leather-Arm-Chair---Black-7674289_1.jpg', name:"matteo harmchair", price:'3444'},
+       {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'3444'},
+        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'3444'},
+        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'3444'},
+        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'3444'},
+        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'3444'},
+       {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/S/i/Single-Sofa-Leather-Arm-Chair---Black-7674289_1.jpg', name:"matteo harmchair", price:'3444'},
 
         
       ]

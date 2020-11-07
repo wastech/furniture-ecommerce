@@ -2,7 +2,7 @@
 <div class="hello">
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <a class="navbar-brand">
-      <router-link to="/">Our Products</router-link>
+      <router-link to="/"> Products</router-link>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,12 +31,13 @@
         </li>
       </ul>
       
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="enter you email...." aria-label="Search">
-        <button class="btn btn-primary my-2 my-sm-0 " type="submit">search</button>
-      </form>
+      
     </div>
+    <span><i class="fas fa-cart-plus"></i></span>
   </nav>
+  
+      
+      
 </div>
 </template>
 
@@ -55,6 +56,11 @@ ul {
   color: black;
   font-weight: bolder;
   padding: 2rem;
+}
+.fas{
+  font-size: 2em;
+  margin-left: 70%;
+  
 }
 button {
   border-radius: 0.7rem;
