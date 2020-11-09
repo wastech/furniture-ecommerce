@@ -4,28 +4,28 @@
       <div class="col-sm-6">
         <div class="image">
           <img
-            :src="item.photo"
+            :src="product.photo"
             alt=""
           />
         </div>
 
         <div class="name">
-          <h3>{{item.title}} <span class="price">${{item.price}}</span></h3>
+          <h3>{{product.title}} <span class="price">${{product.price}}</span></h3>
         </div>
 
         <div class="category">
-          <h5>{{item.category.type}}</h5>
+          <h5>{{product.category.type}}</h5>
         </div>
       </div>
 
       <div class="col-sm-6">
         <p class="text">
-          {{item.description}}
+          {{product.description}}
         </p>
         <div class="icon">
           <i class="fas fa-cart-plus"></i>
 
-          <h3 class="cart">+ add to cart</h3>
+          <h3 class="cart" @click="addToCart(product)"> + add to cart </h3>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
     <div class="title">
       <h1> Similar Product</h1>
     </div>
-    <matchedProduct :category="item.category.type"/>
+    <matchedProduct :category="product.category.type"/>
 
      <div class="title">
       <h1> New Product</h1>
@@ -43,28 +43,29 @@
 
   </div>
 </template>
+
 <script>
+import mixins from '@/mixins/mixins'
 import axios from 'axios'
 import matchedProduct from '@/components/matchedProduct.vue'
 import newProduct from '@/components/newProduct.vue'
 export default {
+    mixins: [mixins],
   components:{
     matchedProduct,
     newProduct
   },
   data(){
     return{
-      item:{},
+      product:{},
       _id: this.$route.params.id,
     }
-
-
   },
    created() {
         axios.get(`http://localhost:3000/api/products/${this._id}`)
           .then(response => {
-            this.item = response.data.product
-             console.log(this.item)
+            this.product = response.data.product
+             console.log(this.product)
           }).catch(res => {
             console.log(res)
           })
@@ -121,5 +122,6 @@ h3.cart {
   background-color: #f6f5f1;
   border-radius: 1.5em;
   margin-top: -1.5em;
+  cursor: pointer;
 }
 </style>

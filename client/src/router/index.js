@@ -22,12 +22,13 @@ const routes = [
   {
     path: '/admin/product',
     name: 'product',
+
     component: () => import(/* webpackChunkName: "about" */ '../admin/product.vue')
     
   },
   {
-    path: '/chart',
-    name: 'chart',
+    path: '/cart',
+    name: 'cart',
     component: () => import(/* webpackChunkName: "about" */ '../views/Chart.vue')
   },
   {
@@ -42,6 +43,7 @@ const routes = [
   },
   {
     path: '/productdetail/:id',
+    props: true,
     name: 'productdetail',
     component: () => import(/* webpackChunkName: "about" */ '../views/productDetail.vue')
   },

@@ -33,7 +33,8 @@
       
       
     </div>
-    <span><i class="fas fa-cart-plus"></i></span>
+    <router-link tag="a" :to = "{name: 'cart'}">Cart(<span class="cart-color"><span><i class="fas fa-cart-plus"></i></span>{{ cart.length }}</span>)</router-link>
+    
   </nav>
   
       
@@ -43,8 +44,13 @@
 
 <script>
 export default {
-  name: 'appnavbar',
-  
+  name: 'navbar',
+ 
+  computed: {
+    cart() {
+      return this.$store.getters.getCart
+    }
+  }
 }
 </script>
 
