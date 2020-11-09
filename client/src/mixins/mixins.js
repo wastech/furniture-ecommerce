@@ -7,6 +7,7 @@ export default {
           _id: product._id,
           name: product.name,
           price: product.price,
+          title: product.title,
           photo:product.photo,
           subtotal: product.price*1,
           qty: 1
@@ -29,6 +30,7 @@ export default {
             _id: product._id,
             name: product.name,
             price: product.price,
+            title: product.title,
             photo:product.photo,
             subtotal: product.price *1,
             qty: 1

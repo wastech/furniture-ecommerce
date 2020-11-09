@@ -1,10 +1,11 @@
 <template>
   <div class="cart-wrap">
-    <div class="container">
-      <div class="row">
-        <div v-if="cart.length == 0">
+		<div v-if="cart.length == 0">
           <h1>Your Cart is Empty !</h1>
         </div>
+    <div class="container" v-else>
+      <div class="row">
+        
         <div class="col-lg-8">
           <div class="main-heading">Shopping Cart</div>
           <div class="table-cart">
@@ -33,17 +34,18 @@
                       
                       </div>
                       <div class="price">${{item.price}}</div>
+											<td>{{ item.qty }}</td>
                     </div>
                   </td>
                   <td class="product-count">
-                    <form action="#" class="count-inlineflex">
-                      <button class="btn" @click="action('min',item)">-</button>
+                   
+              <button class="btn" @click="action('min',item)">-</button>
               <button class="btn btn-red" @click="action('clear',item)">Remove</button>
               <button class="btn" @click="action('add',item)">+</button>
-                    </form>
-                  </td>
+      
+              </td>
                   <td>
-                    <div class="total"></div>
+                    <div class="total">${{total}}</div>
                   </td>
                 
                 </tr>
