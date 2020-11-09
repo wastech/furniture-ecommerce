@@ -4,35 +4,23 @@
       <div class="col-sm-6">
         <div class="image">
           <img
-            src="https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg"
+            :src="item.photo"
             alt=""
           />
         </div>
 
         <div class="name">
-          <h3>Osmond Armchair <span class="price">$5555</span></h3>
+          <h3>{{item.title}} <span class="price">${{item.price}}</span></h3>
         </div>
 
         <div class="category">
-          <h5>chiar</h5>
+          <h5>{{item.category.type}}</h5>
         </div>
       </div>
 
       <div class="col-sm-6">
         <p class="text">
-          semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-          porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
-          dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla
-          ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
-          ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam
-          eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum
-          rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed
-          ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id,
-          lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien
-          ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci
-          eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet
-          nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum
-          sodales, augue velit cursus nunc,
+          {{item.description}}
         </p>
         <div class="icon">
           <i class="fas fa-cart-plus"></i>
@@ -45,7 +33,7 @@
     <div class="title">
       <h1> Similar Product</h1>
     </div>
-    <matchedProduct/>
+    <matchedProduct :category="item.category.type"/>
 
      <div class="title">
       <h1> New Product</h1>
@@ -56,13 +44,33 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 import matchedProduct from '@/components/matchedProduct.vue'
 import newProduct from '@/components/newProduct.vue'
 export default {
   components:{
     matchedProduct,
     newProduct
-  }
+  },
+  data(){
+    return{
+      item:{},
+      _id: this.$route.params.id,
+    }
+
+
+  },
+   created() {
+        axios.get(`http://localhost:3000/api/products/${this._id}`)
+          .then(response => {
+            this.item = response.data.product
+             console.log(this.item)
+          }).catch(res => {
+            console.log(res)
+          })
+      
+    },
+    
 }
 </script>
 <style scoped>

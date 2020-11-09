@@ -12,11 +12,7 @@ const routes = [
     name: 'About',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  {
-    path: '/productDetail/:id',
-    name: 'productdetail',
-    component: () => import(/* webpackChunkName: "about" */ '../views/productDetail.vue')
-  },
+ 
   {
     path: '/chairs',
     name: 'chairs',
@@ -43,7 +39,12 @@ const routes = [
     path: '/admin/owner',
     name: 'owner',
     component: () => import(/* webpackChunkName: "about" */ '../admin/owner.vue')
-  }
+  },
+  {
+    path: '/productdetail/:id',
+    name: 'productdetail',
+    component: () => import(/* webpackChunkName: "about" */ '../views/productDetail.vue')
+  },
 ]
 
 const router = createRouter({

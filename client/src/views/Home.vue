@@ -1,27 +1,38 @@
 <template>
   <div class="container">
-     
-   <bestProduct/>
-
-   
+    <div class="row">
+    <div class="col-sm-3" v-for="item in items" :key="item._id">
+        <cards :item="item" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import bestProduct from '@/components/bestProduct.vue'
+import axios from "axios";
+import cards from "@/shared/cards.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-   // HelloWorld
-   bestProduct,
-  
-  }
-}
+    // HelloWorld
+    cards,
+  },
+  data() {
+    return {
+      items: [],
+    };
+  },
+  created() {
+    axios.get("http://localhost:3000/api/products").then((response) => {
+      this.items = response.data.products;
+    });
+  },
+};
 </script>
 <style scoped>
-.container{
+.container {
   max-width: 95%;
   width: 100%;
 }
@@ -29,5 +40,8 @@ export default {
   margin-bottom: 1.5em;
   margin-top: 1.5em;
   text-shadow: 1px 1px 1px #000;
+}
+.col-sm-3{
+  margin-bottom: 2em;
 }
 </style>

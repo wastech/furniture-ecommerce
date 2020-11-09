@@ -37,12 +37,14 @@ router.post('/products',  async(req, res) => {
 
 router.get('/products', async (req, res) => {
   try {
-    const products = await Product.find()
+    const count = await Product.count({})
+    const products = await Product.find({}).limit(12)
     .populate("owner category").exec()
     
     res.json({
       success: true,
-      products: products
+      products: products,
+      count:count
     })
 
   } catch (err) {
@@ -52,6 +54,7 @@ router.get('/products', async (req, res) => {
     })
   }
 })
+
 
 
 // Get a single product
@@ -76,46 +79,6 @@ router.get('/products/:id', async (req, res) => {
   }
 })
 
-
-
-router.get('/best/products/', (req, res) => {
-  Product.find({
-        isBestProduct: true
-    },
-        function (err, product) {
-            if (err) {
-                res.send(err)
-            }
-            console.log('data', product)
-            res.json(product)
-        }).limit(8)
-})
-
-router.get('/top/products/', (req, res) => {
-  Product.find({
-        isTopProduct: true
-    },
-        function (err, product) {
-            if (err) {
-                res.send(err)
-            }
-            console.log('data', product)
-            res.json(product)
-        }).limit(8)
-})
-
-router.get('/new/products/', (req, res) => {
-  Product.find({
-        isNewProduct: true
-    },
-        function (err, product) {
-            if (err) {
-                res.send(err)
-            }
-            console.log('data', product)
-            res.json(product)
-        }).limit(8)
-})
 
 // Put
 
@@ -175,6 +138,26 @@ router.delete('/products/:id', async (req, res) => {
     })
   }
 })
+
+router.get('/products/:category', async (req, res) => {
+  try {
+
+    const product = await Product.findOne({
+      category: req.params.category
+    }).populate('owner category').exec()
+    res.json({
+      success: true,
+      product: product
+    })
+
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: err.message
+    })
+  }
+})
+
 
 
 

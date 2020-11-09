@@ -3,11 +3,15 @@
    
    
         <div class="card" style="width: 100%;">
+           <router-link
+                v-bind:to="{ name: 'productdetail', params: { id: item._id } }"
+              >
           <img
             :src="item.photo"
             class="card-img-top"
-            alt="..."
+            alt="item.name"
           />
+           </router-link>
           <div class="card-body">
             <h5 class="card-title">{{item.name}} </h5>
             <p class="card-text">

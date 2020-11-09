@@ -15,20 +15,32 @@
 <script>
 import cards from "@/shared/cards.vue"
 export default {
+   props: {
+    category: String,
+  },
   components:{
     cards
   },
   data(){
     return{
-      items:[
-        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'444'},
-        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'444'},
-        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'444'},
-        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'444'}
-      ]
+      items:[]
     }
-  }
-}
+  },
+  watch: {
+    $props: {
+      handler: async function (newProps) {
+        console.log("newProps.category", newProps.category);
+        const response = await axios.get(
+          `http://localhost:3000/api/category/${newProps.category}`
+        );
+        this.items = response.data.category;
+        console.log(response.data)
+      },
+      deep: true,
+    },
+  },
+};
+
 </script>
 
 <style scoped>
