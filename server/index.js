@@ -7,6 +7,7 @@ const categoryRoutes = require("./routes/category");
 const ownerRoutes = require("./routes/owner");
 const productRoutes = require("./routes/product");
 const authRoutes = require("./routes/user");
+const addressRoutes = require("./routes/address")
 
 const cors = require("cors");
 const app = express();
@@ -23,6 +24,7 @@ app.use("/api", categoryRoutes);
 app.use("/api", ownerRoutes);
 app.use("/api", authRoutes);
 app.use("/api", productRoutes);
+app.use("/api", addressRoutes);
 
 
 mongoose.connect(" mongodb://localhost:27017/furniture",
