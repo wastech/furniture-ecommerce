@@ -1,6 +1,8 @@
 const router = require("express").Router();
 
 const Category = require("../models/category");
+const Product = require("../models/product");
+
 
 //Post
 
@@ -39,6 +41,25 @@ router.get("/categories", async (req, res) => {
   }
 });
 
+// categories
+
+router.get('/categories/:category', async (req, res) => {
+  Category.findOne({ type: req.params.type }, (err, category) => {
+    if (err) res.status(500).json({ success: false, message: "Category not found" });
+    if (category) {
+        Product.find({ category: category._id })
+            .populate('category')
+            .lean()
+            .exec((err, products) => {
+                if(err) res.status(500).json({ success: false, message: "product/s not found" });
+                res.json(products);
+            })
+    }
+    else {
+        res.status(404).json({ success: false, message: "Products not found" });
+    }
+});
+})
 // Delete
 
 router.delete('/categories/:id', async (req, res) => {

@@ -9,26 +9,16 @@
     </button>
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav   mr-auto ">
-        <li class="nav-item">
+        <li  class="nav-item" v-for="category in categories" :key="category._id">
           <a class="nav-link">
-            <router-link to="/">Chairs</router-link>
-          </a>
+          <router-link tag="a" :to = "{name: 'category', params: {category: category.type}}">{{ category.type }}
+          
+          </router-link>
+            </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <router-link to="/">Sofas</router-link>
-          </a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <router-link to="/">Beds</router-link>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <router-link to="/">Tables</router-link>
-          </a>
-        </li>
+       
+        
+      
       </ul>
       
       
@@ -43,9 +33,20 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'navbar',
- 
+  data(){
+    return{
+       categories: []
+    }
+  },
+  created() {
+   axios.get("http://localhost:3000/api/categories").then(response => {
+        this.categories = response.data.categories
+      });
+    
+  },
   computed: {
     cart() {
       return this.$store.getters.getCart

@@ -139,25 +139,6 @@ router.delete('/products/:id', async (req, res) => {
   }
 })
 
-router.get('/products/:category', async (req, res) => {
-  try {
-
-    const product = await Product.findOne({
-      category: req.params.category
-    }).populate('owner category').exec()
-    res.json({
-      success: true,
-      product: product
-    })
-
-  } catch (err) {
-    res.status(500).json({
-      success: false,
-      message: err.message
-    })
-  }
-})
-
 
 
 
