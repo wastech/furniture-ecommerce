@@ -29,7 +29,7 @@ const routes = [
   {
     path: '/cart',
     name: 'cart',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Chart.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Cart.vue')
   },
   {
     path: '/admin/category',

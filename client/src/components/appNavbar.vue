@@ -33,7 +33,7 @@
       
       
     </div>
-    <router-link tag="a" :to = "{name: 'cart'}">Cart(<span class="cart-color"><span><i class="fas fa-cart-plus"></i></span>{{ cart.length }}</span>)</router-link>
+    <router-link tag="a" :to = "{name: 'cart'}"><span class="cart-color"><i class="fas fa-cart-plus badge badge-light">{{ cart.length }}</i></span></router-link>
     
   </nav>
   
@@ -64,8 +64,8 @@ ul {
   padding: 2rem;
 }
 .fas{
-  font-size: 2em;
-  margin-left: 70%;
+  font-size: 1em;
+  margin-left: 65%;
   
 }
 button {
