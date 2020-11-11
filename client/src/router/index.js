@@ -53,8 +53,11 @@ const routes = [
     props: true,
     component: () => import(/* webpackChunkName: "about" */ '../views/Category.vue')
     
-  },
+  }
 ]
+ 
+
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
