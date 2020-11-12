@@ -1,10 +1,16 @@
 import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
+  strict: true,
   state: {
     cart: JSON.parse(localStorage.getItem("cart")) || [],
     charge: {},
+    token: "",
+    user: "",
+    isUserLoggedIn: false,
   },
+  plugins: [createPersistedState()],
   getters: {
     getCart: (state) => state.cart,
     getCharge: (state) => state.charge,
@@ -12,6 +18,13 @@ export default createStore({
   mutations: {
     setCart: (state, payload) => {
       state.cart.push(payload);
+    },
+    setToken(state, token) {
+      state.token = token;
+      state.isUserLoggedIn = !!token;
+    },
+    setUser(state, user) {
+      state.user = user;
     },
     setQuantity: (state, payload) => {
       let item = state.cart.find((product) => {
@@ -29,6 +42,13 @@ export default createStore({
       state.charge = payload;
     },
   },
-  actions: {},
+  actions: {
+    setToken({ commit }, token) {
+      commit("setToken", token);
+    },
+    setUser({ commit }, user) {
+      commit("setUser", user);
+    },
+  },
   modules: {},
 });

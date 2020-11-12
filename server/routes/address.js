@@ -6,10 +6,10 @@ const axios = require("axios");
 
 
 /**POST CREATE */
-router.post("/addresses", verifyToken, async (req, res) => {
+router.post("/addresses",  async (req, res) => {
   try {
     let address = new Address();
-    address.user = req.decoded._id;
+  
     address.country = req.body.country;
     address.fullName = req.body.fullName;
     address.streetAddress = req.body.streetAddress;
@@ -36,10 +36,10 @@ router.post("/addresses", verifyToken, async (req, res) => {
 
 /**GET ALL Addresses */
 
-router.get("/addresses", verifyToken, async (req, res) => {
+router.get("/addresses",  async (req, res) => {
   try {
     let addresses = await Address.find({
-      user: req.decoded._id,
+    
     });
 
     res.json({
@@ -56,7 +56,7 @@ router.get("/addresses", verifyToken, async (req, res) => {
 
 //Get API
 
-router.get("/addresses/:id", verifyToken, async (req, res) => {
+router.get("/addresses/:id",  async (req, res) => {
   try {
     const address = await Address.findOne({
       _id: req.params.id,
@@ -103,7 +103,7 @@ router.get("/countries", async (req, res) => {
  */
 
 // Update Address/:id
-router.put("/addresses/:id", verifyToken, async (req, res) => {
+router.put("/addresses/:id", async (req, res) => {
   try {
     let foundAddress = await Address.findOne({ _id: req.params.id });
     if (foundAddress) {
@@ -138,7 +138,7 @@ router.put("/addresses/:id", verifyToken, async (req, res) => {
 
 // delete
 
-router.delete("/addresses/:id", verifyToken, async (req, res) => {
+router.delete("/addresses/:id", async (req, res) => {
   try {
     let deletedAddress = await Address.remove({
       user: req.decoded._id,
@@ -158,7 +158,7 @@ router.delete("/addresses/:id", verifyToken, async (req, res) => {
   }
 });
 
-router.put("/addresses/set/default", verifyToken, async (req, res) => {
+router.put("/addresses/set/default", async (req, res) => {
   try {
     const updatedAddressUser = await User.findOneAndUpdate(
       {

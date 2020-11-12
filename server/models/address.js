@@ -8,10 +8,11 @@ const AddressSchema = new Schema({
   streetAddress: String,
   city: String,
   state: String,
+  
   zipCode: Number,
   phoneNumber: String,
   deliverInstructions: String,
-  securityCode: String,
+  email:String
 });
 
 module.exports = mongoose.model("Address", AddressSchema);

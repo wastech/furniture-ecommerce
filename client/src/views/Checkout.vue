@@ -13,6 +13,7 @@
             class="form-control form-control-lg"
             id="colFormLabelLg"
             placeholder=""
+            v-model="post.email"
           />
         </div>
       </div>
@@ -23,7 +24,7 @@
           class="col-sm-2 col-form-label col-form-label-lg"
           >country</label
         >
-        <select class="form-control  col-sm-9 form-control-lg">
+        <select class="form-control  col-sm-9 form-control-lg" v-model="post.country">
   <option
      v-for="country in countries"
                         :key="country.alpha2Code"
@@ -35,45 +36,33 @@
         <label
           for="colFormLabelLg"
           class="col-sm-2 col-form-label col-form-label-lg"
-          >Firstname</label
+         
+          >fullName</label
         >
         <div class="col-sm-10">
           <input
             type="text"
             class="form-control form-control-lg"
             id="colFormLabelLg"
+             v-model="post.fullName"
             placeholder=""
           />
         </div>
       </div>
 
-      <div class="form-group row">
-        <label
-          for="colFormLabelLg"
-          class="col-sm-2 col-form-label col-form-label-lg"
-          >lastname</label
-        >
-        <div class="col-sm-10">
-          <input
-            type="tezt"
-            class="form-control form-control-lg"
-            id="colFormLabelLg"
-            placeholder=""
-          />
-        </div>
-      </div>
 
       <div class="form-group row">
         <label
           for="colFormLabelLg"
           class="col-sm-2 col-form-label col-form-label-lg"
-          >Address</label
+          >streetAddress</label
         >
         <div class="col-sm-10">
           <input
             type="text"
             class="form-control form-control-lg"
             id="colFormLabelLg"
+            v-model="post.streetAddress"
             placeholder=""
           />
         </div>
@@ -90,6 +79,7 @@
             type="text"
             class="form-control form-control-lg"
             id="colFormLabelLg"
+              v-model="post.city"
             placeholder=""
           />
         </div>
@@ -99,11 +89,12 @@
         <label
           for="colFormLabelLg"
           class="col-sm-2 col-form-label col-form-label-lg"
-          >phone</label
+          >phoneNumber</label
         >
         <div class="col-sm-10">
           <input
             type="number"
+            v-model="post.phoneNumber"
             class="form-control form-control-lg"
             id="colFormLabelLg"
             placeholder=""
@@ -115,13 +106,14 @@
         <label
           for="colFormLabelLg"
           class="col-sm-2 col-form-label col-form-label-lg"
-          >zip</label
+          >deliverInstructions</label
         >
         <div class="col-sm-10">
           <input
-            type="number"
+            type="text"
             class="form-control form-control-lg"
             id="colFormLabelLg"
+             v-model="post.deliverInstructions"
             placeholder=""
           />
         </div>
@@ -138,11 +130,30 @@
             type="text"
             class="form-control form-control-lg"
             id="colFormLabelLg"
+            v-model="post.state"
             placeholder=""
           />
         </div>
       </div>
-      <button type="button" class="btn btn-primary btn-lg">next step</button>
+
+       <div class="form-group row">
+        <label
+          for="colFormLabelLg"
+          class="col-sm-2 col-form-label col-form-label-lg"
+          >zipCode</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            id="colFormLabelLg"
+            v-model="post.zipCode"
+            placeholder=""
+          />
+        </div>
+      </div>
+      
+      <button type="button" class="btn btn-primary btn-lg" @click="address">next step</button>
     </form>
     
   </div>
@@ -155,7 +166,7 @@ export default {
     return {
       post: {},
       countries: [],
-      categories:[]
+     
     };
   },
 
@@ -180,11 +191,11 @@ export default {
     
     },
 
-    addTask() {
+    address() {
       axios
-        .post("http://localhost:3000/api/products", this.post)
+        .post("http://localhost:3000/api/addresses", this.post)
         .then((response) => {
-          //this.type = response.data.categories;
+          this.post = response.data;
           this.fetchTasks();
           console.log(this.post);
         })

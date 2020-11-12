@@ -22,7 +22,7 @@ router.post("/auth/signup", async (req, res) => {
       newUser.password = req.body.password;
       await newUser.save();
 
-      let token = jwt.sign(newUser.toJSON(), process.env.SECRET, {
+      let token = jwt.sign(newUser.toJSON(), "mysecret", {
         expiresIn: 604800, // 1week
       });
 
@@ -98,7 +98,7 @@ router.post("/auth/login", async (req, res) => {
       });
     } else {
       if (foundUser.comparePassword(req.body.password)) {
-        let token = jwt.sign(foundUser.toJSON(), "secret", {
+        let token = jwt.sign(foundUser.toJSON(), "mysecret", {
           expiresIn: 604800,
         });
         res.json({
