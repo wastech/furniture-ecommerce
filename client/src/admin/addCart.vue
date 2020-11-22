@@ -8,7 +8,7 @@
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
-          v-model="post.type"
+          v-model="post.title"
         />
       </div>
 
@@ -18,7 +18,7 @@
     <!---  categories-->
     <ul class="list-group">
       <li class="list-group-item" v-for="item in items" :key="item.id">
-        {{ item.type }}
+        {{ item.title }}
       </li>
     </ul>
   </div>
@@ -33,7 +33,6 @@ export default {
       items: [],
     };
   },
-
   created() {
     this.fetchTasks();
   },

@@ -12,7 +12,7 @@ router.post('/products',  async(req, res) => {
     let product = new Product()
     product.owner = req.body.ownerID
     product.category = req.body.categoryID
-    product.title = req.body.title
+    product.name = req.body.name
     product.description = req.body.description
     product.photo = req.body.photo
     product.price = req.body.price
@@ -78,6 +78,47 @@ router.get('/products/:id', async (req, res) => {
     })
   }
 })
+
+//recent product
+router.get("/recent/products", async (req, res) => {
+  try {
+    const product = await Product.find({})
+      .sort("-created")
+      .limit(4)
+      .populate("category")
+      .populate("owner")
+      .exec();
+    res.json({
+      success: true,
+      product: product,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
+});
+// category
+
+router.get("/:category", async (req, res) => {
+  try {
+    const cat = await Product.find({
+      category: req.params.categoryID,
+    })
+      .populate(" category")
+      .populate("owner")
+      .exec();
+    res.json({
+      cat: cat,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
+});
 
 
 // Put

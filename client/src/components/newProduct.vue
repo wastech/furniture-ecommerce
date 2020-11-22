@@ -1,39 +1,47 @@
 <template>
-  <div class="container">
+  <div >
     <div class="row">
-    <div class="col-sm-3"   v-for="item in items" :key="item.id">
-      <cards
-     
-        :item="item"/>
-
-
+    <div class="col-sm-3" v-for="item in items" :key="item._id">
+        <cards :item="item" />
+      </div>
     </div>
-
-  </div>
   </div>
 </template>
-<script>
-import cards from "@/shared/cards.vue"
-export default {
-  components:{
-    cards
-  },
-  data(){
-    return{
-      items:[
-        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'444'},
-        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'444'},
-        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'444'},
-        {image:'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/C/86899_1529181630.jpg', name:"matteo harmchair", price:'444'}
-      ]
-    }
-  }
-}
-</script>
 
+<script>
+// @ is an alias to /src
+import axios from "axios";
+import cards from "@/shared/cards.vue";
+
+export default {
+  name: "Home",
+  components: {
+    // HelloWorld
+    cards,
+  },
+  data() {
+    return {
+      items: [],
+    };
+  },
+  created() {
+    axios.get("http://localhost:3000/api/recent/products").then((response) => {
+      this.items = response.data.product;
+    });
+  },
+};
+</script>
 <style scoped>
+.container {
+  max-width: 95%;
+  width: 100%;
+}
+.title h1 {
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  text-shadow: 1px 1px 1px #000;
+}
 .col-sm-3{
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 </style>

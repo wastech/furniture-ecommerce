@@ -27,7 +27,7 @@ app.use("/api", productRoutes);
 app.use("/api", addressRoutes);
 
 
-mongoose.connect(" mongodb://localhost:27017/furniture",
+mongoose.connect(" mongodb://localhost:27017/cart",
   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
   (err) => {
     if (err) {

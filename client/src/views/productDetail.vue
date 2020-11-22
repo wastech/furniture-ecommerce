@@ -10,11 +10,11 @@
         </div>
 
         <div class="name">
-          <h3>{{product.title}} <span class="price">${{product.price}}</span></h3>
+          <h3>{{product.name}} <h5 class="price">${{product.price}}</h5></h3>
         </div>
 
         <div class="category">
-          <h5>{{product.category.type}}</h5>
+         <!-- <h5>{{product.category.title}}</h5>-->
         </div>
       </div>
 
@@ -33,7 +33,9 @@
     <div class="title">
       <h1> Similar Product</h1>
     </div>
-    <matchedProduct :category="product.category.type"/>
+    <matchedProduct 
+    
+    :category="product.category.title"/>
 
      <div class="title">
       <h1> New Product</h1>
@@ -78,10 +80,12 @@ export default {
 .title h1 {
   margin-bottom: 1.5em;
   margin-top: 1.5em;
+  
   text-shadow: 1px 1px 1px #000;
 }
 img {
   width: 100%;
+  
 }
 .price {
   text-align: right;
@@ -89,11 +93,12 @@ img {
   box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset,
     -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
   background-color: white;
-  padding: 6%;
-  margin-top: -10em;
+  padding: 3%;
+  margin-top: 1em;
 }
 .name h3 {
   margin-top: 3%;
+  font-size: large;
 }
 .row {
   background: transparent;
@@ -104,8 +109,8 @@ img {
   min-height: 380px;
 }
 p {
-  padding: 1.5em;
-  font-size: 1em;
+  padding: 1em;
+  font-size: large;
 }
 .icon {
   text-align: center;
@@ -113,12 +118,12 @@ p {
 }
 .fas {
   background-color: black;
-  padding: 0.6em;
+  padding: 0.3em;
   color: white;
   border-radius: 30%;
 }
 h3.cart {
-  padding: 2em;
+  padding: 1.5em;
   background-color: #f6f5f1;
   border-radius: 1.5em;
   margin-top: -1.5em;

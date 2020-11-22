@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h4>Add a New author</h4>
+    <h4>Add a New Product</h4>
     <div class="row">
       <div class="col-sm-12">
         <form  @submit.prevent="addTask">
@@ -18,7 +18,7 @@
                 :value="category._id"
                 :key="category._id"
               >
-                {{ category.type }}
+                {{ category.title }}
               </option>
             </select>
           </div>
@@ -44,12 +44,12 @@
 
           <!-- input-->
           <div class="form-group required">
-            <label for="" class="control-label">title</label>
+            <label for="" class="control-label">name</label>
             <input
               type="text"
               class="form-control shadow"
               aria-describedby="textHelp"
-              v-model="post.title"
+              v-model="post.name"
               placeholder="title"
             />
           </div>
@@ -154,10 +154,10 @@ h4 {
   text-align: center;
 }
 .form-control {
-  padding: 2em;
+  padding: 1.5em;
 }
 label {
   font-weight: 900;
-  font-size: large;
+  font-size: small;
 }
 </style>

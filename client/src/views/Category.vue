@@ -38,15 +38,17 @@ export default {
     },
     methods: {
         fetch() {
-              axios.get(`http://localhost:3000/api/categories/${this.category}`).then(response => {
-        this.items = response.data;
+              axios.get(`http://localhost:3000/api/${this.category}`).then(response => {
+        this.items = response.data.product;
         console.log(this.items)
       });
         }
     }
-}
-
+    }
 </script>
+
+  
+
 
 <style scoped>
 .col-sm-3{

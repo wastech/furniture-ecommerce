@@ -28,7 +28,7 @@
 		                                        <img :src="item.photo" alt="" class="mCS_img_loaded">
 		                                    </div>
 		                                    <div class="name-product">
-		                                        {{item.title}}
+		                                        {{item.name}}
 		                                    </div>
 		                                    <div class="price">
 		                                        ${{item.price}}

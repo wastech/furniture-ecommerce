@@ -5,12 +5,12 @@ export default {
       if (cart.length === 0) { 
         let item = {
           id: product._id,
-          title: product.title,
+          name: product.name,
           photo: product.photo,
           price: product.price,
-          subtotal: product.price*1,
-          qty: 1
-        }
+          subtotal: product.price * 1,
+          qty: 1,
+        };
         cart.push(item);
         this.$store.commit('setCart', item);
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -28,10 +28,10 @@ export default {
           let item = {
             id: product._id,
             photo: product.photo,
-            title: product.title,
+            name: product.name,
             price: product.price,
-            subtotal: product.price *1,
-            qty: 1
+            subtotal: product.price * 1,
+            qty: 1,
           };
           cart.push(item);
           this.$store.commit('setCart', item);

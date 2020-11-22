@@ -11,7 +11,7 @@
       <ul class="navbar-nav   mr-auto ">
         <li  class="nav-item" v-for="category in categories" :key="category._id">
           <a class="nav-link">
-          <router-link tag="a" :to = "{name: 'category', params: {category: category.type}}">{{ category.type }}
+          <router-link  :to = "{name: 'category', params: {category: category.title}}">{{ category.title }}
           
           </router-link>
             </a>

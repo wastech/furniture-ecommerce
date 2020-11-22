@@ -74,7 +74,7 @@ router.get("/addresses/:id",  async (req, res) => {
 });
 
 // Get countries data API
-router.get("/countries", async (req, res) => {
+router.get("/address/countries", async (req, res) => {
   try {
     let response = await axios.get("https://restcountries.eu/rest/v2/all");
     console.log(response);

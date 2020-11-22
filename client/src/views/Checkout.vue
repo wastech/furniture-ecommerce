@@ -182,9 +182,9 @@ export default {
     
     fetchTasks() {
       
-     axios.get("http://localhost:3000/api/countries").then(response => {
+     axios.get("http://localhost:3000/api/address/countries").then(response => {
         this.countries = response.data;
-      
+       console.log(this.countries);
 }).catch(function(err){
   console.log(err);
 })
@@ -195,7 +195,6 @@ export default {
       axios
         .post("http://localhost:3000/api/addresses", this.post)
         .then((response) => {
-          this.post = response.data;
           this.fetchTasks();
           console.log(this.post);
         })

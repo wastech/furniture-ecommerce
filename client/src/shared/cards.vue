@@ -33,13 +33,20 @@ export default {
 .card {
   box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset,
     -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
+    height: 50vh;
 }
 .card-title{
   color: #534b4b;
+  font-size: medium;
 }
 .fas{
   font-size: 2em;
-  margin-left: 70%;
+  float: right;
+  margin-bottom: 0em;
   
+}
+img{
+  height: 30vh;
+  object-fit: contain;
 }
 </style>
