@@ -13,6 +13,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/admin/posts",
+    name: "posts",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../admin/posts.vue"),
+  },
 
   {
     path: "/admin/product",
@@ -20,6 +26,13 @@ const routes = [
 
     component: () =>
       import(/* webpackChunkName: "about" */ "../admin/product.vue"),
+  },
+  {
+    path: "/paymentpage",
+    name: "paymentpage",
+
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/paymentPage.vue"),
   },
   {
     path: "/admin/login",
@@ -35,8 +48,8 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Cart.vue"),
   },
   {
-    path: "/checkout",
-    name: "checkout",
+    path: "/address",
+    name: "address",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Checkout.vue"),
   },

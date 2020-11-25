@@ -1,10 +1,14 @@
 <template>
+<div class="main">
+   <Header/>
   <div class="container">
+
     <div class="row">
     <div class="col-sm-3" v-for="item in items" :key="item._id">
         <cards :item="item" />
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -12,6 +16,7 @@
 // @ is an alias to /src
 import axios from "axios";
 import cards from "@/shared/cards.vue";
+import Header from "@/components/Header.vue";
 
 
 export default {
@@ -19,6 +24,7 @@ export default {
   components: {
     // HelloWorld
     cards,
+    Header
   },
   data() {
     return {
@@ -28,6 +34,7 @@ export default {
   created() {
     axios.get("http://localhost:3000/api/products").then((response) => {
       this.items = response.data.products;
+      console.log(this.items)
     });
   },
 };

@@ -31,9 +31,9 @@ export default {
       handler: async function (newProps) {
         console.log("newProps.category", newProps.category);
         const response = await axios.get(
-          `http://localhost:3000/api/product/${newProps.category}`
+          `api/product/${newProps.category}`
         );
-        this.items = response.data;
+        this.items = response.data.product;
         console.log(this.items)
       },
       deep: true,

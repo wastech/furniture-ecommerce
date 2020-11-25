@@ -53,7 +53,9 @@ router.get("/auth/user", verifyToken, async (req, res) => {
       res.json({
         success: true,
         user: foundUser,
+        
       });
+      console.log(foundUser);
     }
   } catch (err) {
     res.status(500).json({

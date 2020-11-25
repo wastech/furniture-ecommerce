@@ -127,7 +127,7 @@ export default {
   },
   methods: {
     checkout(){
-      this.$router.push({name: 'cart'});
+      this.$router.push({name: 'address'});
       localStorage.clear();
       this.$store.state.cart = [];
     },

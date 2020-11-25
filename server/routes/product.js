@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router()
 const Product = require('../models/product.js')
+const Category = require("../models/Category.js");
 
 
 
@@ -64,8 +65,11 @@ router.get('/products/:id', async (req, res) => {
   try {
 
     const product = await Product.findOne({
-      _id: req.params.id
-    }).populate('owner category').exec()
+      _id: req.params.id,
+    })
+      .populate(" category")
+      .populate("owner")
+      .exec();
     res.json({
       success: true,
       product: product
@@ -103,15 +107,16 @@ router.get("/recent/products", async (req, res) => {
 
 router.get("/:category", async (req, res) => {
   try {
-    const cat = await Product.find({
+    const product = await Product.find({
       category: req.params.categoryID,
     })
       .populate(" category")
       .populate("owner")
       .exec();
     res.json({
-      cat: cat,
+      product: product,
     });
+    console.log(product);
   } catch (err) {
     res.status(500).json({
       success: false,

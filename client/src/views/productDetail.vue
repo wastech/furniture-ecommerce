@@ -63,8 +63,9 @@ export default {
       _id: this.$route.params.id,
     }
   },
-   created() {
-        axios.get(`http://localhost:3000/api/products/${this._id}`)
+  methods:{
+   getPost() {
+        axios.get(`/api/products/${this._id}`)
           .then(response => {
             this.product = response.data.product
              console.log(this.product)
@@ -72,9 +73,19 @@ export default {
             console.log(res)
           })
       
-    },
+    }
+  },
+     watch: {
+      $route: {
+        immediate: true,
+        handler(to, from) {
+          this.getPost()
+        }
+      }
+    }
+  }
     
-}
+
 </script>
 <style scoped>
 .title h1 {
@@ -85,6 +96,7 @@ export default {
 }
 img {
   width: 100%;
+  height: 52vh;
   
 }
 .price {

@@ -16,7 +16,7 @@
 import axios from 'axios'
 import cards from "@/shared/cards.vue"
 export default {
-  props: ['category'],
+ 
   components:{
     cards
   },
@@ -26,24 +26,19 @@ export default {
     }
   },
   
-    created() {
-        this.fetch();
-    },
-    watch: {
-        '$route' (to, from) {
-            if(from.params.category !== to.params.category){
-                this.fetch()
-            }
-        }
-    },
+    
+   
     methods: {
         fetch() {
-              axios.get(`http://localhost:3000/api/${this.category}`).then(response => {
+              axios.get(`/api/${this.$route.params.id}`).then(response => {
         this.items = response.data.product;
         console.log(this.items)
       });
         }
-    }
+    },
+    mounted() {
+        this.fetch();
+    },
     }
 </script>
 
