@@ -35,7 +35,7 @@
     </div>
     <matchedProduct 
     
-    :category="product.category.title"/>
+    :category="product.category"/>
 
      <div class="title">
       <h1> New Product</h1>
@@ -68,7 +68,7 @@ export default {
         axios.get(`/api/products/${this._id}`)
           .then(response => {
             this.product = response.data.product
-             console.log(this.product)
+            console.log(this.product)
           }).catch(res => {
             console.log(res)
           })

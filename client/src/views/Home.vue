@@ -1,6 +1,6 @@
 <template>
 <div class="main">
-   <Header/>
+ 
   <div class="container">
 
     <div class="row">
@@ -16,7 +16,7 @@
 // @ is an alias to /src
 import axios from "axios";
 import cards from "@/shared/cards.vue";
-import Header from "@/components/Header.vue";
+
 
 
 export default {
@@ -24,7 +24,7 @@ export default {
   components: {
     // HelloWorld
     cards,
-    Header
+  
   },
   data() {
     return {

@@ -74,6 +74,7 @@ router.get('/products/:id', async (req, res) => {
       success: true,
       product: product
     })
+   
 
   } catch (err) {
     res.status(500).json({
@@ -105,11 +106,10 @@ router.get("/recent/products", async (req, res) => {
 });
 // category
 
-router.get("/:category", async (req, res) => {
+router.get("/matched/:category", async (req, res) => {
   try {
     const product = await Product.find({
-      category: req.params.categoryID,
-    })
+      category: req.params.category_id})
       .populate(" category")
       .populate("owner")
       .exec();

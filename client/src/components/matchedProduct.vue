@@ -1,11 +1,20 @@
 <template>
   <div class="container">
     <div class="row">
-    <div class="col-sm-3"   v-for="item in items" :key="item.id">
-      <cards
-     
-        :item="item"/>
-
+    <div class="col-sm-3"   v-for="item in items" :key="item._id">
+       <div class="card" style="width: 100%;">
+      <router-link
+        v-bind:to="{ name: 'productdetail', params: { id: item._id } }"
+      >
+        <img :src="item.photo" class="card-img-top" alt="item.name" />
+      </router-link>
+      <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <p class="card-text">
+          ${{ item.price }} <span><i class="fas fa-cart-plus"></i></span>
+        </p>
+      </div>
+    </div>
 
     </div>
 
@@ -13,13 +22,11 @@
   </div>
 </template>
 <script>
-import cards from "@/shared/cards.vue"
+import axios from "axios";
+
 export default {
    props: {
     category: String,
-  },
-  components:{
-    cards
   },
   data(){
     return{
@@ -29,9 +36,9 @@ export default {
   watch: {
     $props: {
       handler: async function (newProps) {
-        console.log("newProps.category", newProps.category);
+        console.log("newProps.category", newProps.category.title);
         const response = await axios.get(
-          `api/product/${newProps.category}`
+          `/api/matched/${newProps.category.title}`
         );
         this.items = response.data.product;
         console.log(this.items)

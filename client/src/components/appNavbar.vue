@@ -38,20 +38,44 @@ export default {
   name: 'navbar',
   data(){
     return{
-       categories: []
+       categories: [],
+        url: this.$route.params.id
     }
   },
-  created() {
-   axios.get("http://localhost:3000/api/categories").then(response => {
+ /* created() {
+   axios.get("/api/categories").then(response => {
         this.categories = response.data.categories
       });
     
-  },
+  },*/
   computed: {
     cart() {
       return this.$store.getters.getCart
     }
+  },
+   mounted () {
+    this.getCategories()
+  },
+  methods: {
+    async getCategories () {
+      axios.get("/api/categories").then(response => {
+        this.categories = response.data.categories
+      });
+    },
+    reloadPage (url) {
+      this.url = url
+    },
+    goToHome () {
+      this.$router.push({ name: 'Home' })
+    }
+  },
+  watch: {
+    url: function () {
+      console.log(this.url)
+      this.$router.go()
+    }
   }
+   
 }
 </script>
 

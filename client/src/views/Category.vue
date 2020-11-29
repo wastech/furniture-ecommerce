@@ -30,7 +30,7 @@ export default {
    
     methods: {
         fetch() {
-              axios.get(`/api/${this.$route.params.id}`).then(response => {
+              axios.get(`/api/products/${this.$route.params.title}`).then(response => {
         this.items = response.data.product;
         console.log(this.items)
       });
