@@ -11,6 +11,7 @@ router.post("/addresses",  async (req, res) => {
     let address = new Address();
   
     address.country = req.body.country;
+    address.email = req.body.email;
     address.fullName = req.body.fullName;
     address.streetAddress = req.body.streetAddress;
     address.city = req.body.city;
@@ -18,7 +19,7 @@ router.post("/addresses",  async (req, res) => {
     address.zipCode = req.body.zipCode;
     address.phoneNumber = req.body.phoneNumber;
     address.deliverInstructions = req.body.deliverInstructions;
-    address.securityCode = req.body.securityCode;
+   
 
     await address.save();
 
@@ -77,7 +78,7 @@ router.get("/addresses/:id",  async (req, res) => {
 router.get("/address/countries", async (req, res) => {
   try {
     let response = await axios.get("https://restcountries.eu/rest/v2/all");
-    console.log(response);
+    console.log(response.data);
     res.json(response.data);
   } catch (err) {
     res.status(500).json({

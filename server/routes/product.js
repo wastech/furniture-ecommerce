@@ -38,14 +38,14 @@ router.post('/products',  async(req, res) => {
 
 router.get('/products', async (req, res) => {
   try {
-    const count = await Product.count({})
+  
     const products = await Product.find({}).limit(12)
     .populate("owner category").exec()
     
     res.json({
       success: true,
       products: products,
-      count:count
+    
     })
 
   } catch (err) {

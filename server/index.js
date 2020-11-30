@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 //const User = require('./models/user')
 const categoryRoutes = require("./routes/category");
@@ -26,8 +27,12 @@ app.use("/api", authRoutes);
 app.use("/api", productRoutes);
 app.use("/api", addressRoutes);
 
+// load env
+dotenv.config({path: './config/.env'});
 
-mongoose.connect(" mongodb://localhost:27017/cart",
+
+mongoose.connect(
+  process.env.MONGO_URL,
   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
   (err) => {
     if (err) {
@@ -39,11 +44,11 @@ mongoose.connect(" mongodb://localhost:27017/cart",
 );
 
 
-
-app.listen(3000, (err) => {
+const port = process.env.PORT || 8000;
+app.listen(port, (err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log("listenin on port", 3000);
+    console.log(`server runnig in ${process.env.NODE_ENV} mode on port ${port}`);
   }
 });
