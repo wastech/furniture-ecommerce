@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h4>Add a New Owner</h4>
+    <h4>Add a New Author</h4>
     <div class="row">
       <div class="col-sm-12">
         <form @submit.prevent="addTask">
@@ -34,17 +34,17 @@
               id="exampleFormControlTextarea1"
               v-model="post.about"
               placeholder="your text...."
-              rows="10"
+              rows="5"
             ></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">
+          <button type="submit" class="btn btn-primary btn-lg btn-block mt-1">
             submit
           </button>
         </form>
 
         <!-- owner-->
         <div class="row">
-          <div class="col-sm-6 mt-5" v-for="item in items" :key="item.id">
+          <div class="col-sm-6 mt-3" v-for="item in items" :key="item.id">
             <div class="row no-gutters bg-light position-relative">
               <div class="col-md-6 mb-md-0 p-md-4">
                 <img :src="item.photo" class="w-100" alt="..." />
@@ -112,7 +112,7 @@ p {
   word-wrap: break-word;
 }
 .form-control {
-  padding: 2em;
+  padding: 1em;
 }
 label {
   font-weight: 900;

@@ -13,23 +13,62 @@
         </div>
 
         <div class="list">
-          <h5> <i class="fas fa-cart-plus mr-4"></i>User Orders</h5>
-          <h5> <i class="fas fa-cart-plus mr-4"></i>Product List</h5>
-          <h5> <i class="fas fa-cart-plus mr-4"></i>New Item</h5>
-           <h5> <i class="fas fa-cart-plus mr-4"></i>log out</h5>
+          <h5><a href="orders"> <i class="fas fa-cart-plus mr-4"></i>User Orders</a></h5>
+          <h5>  <a href=""><i class="fas fa-cart-plus mr-4"></i>Product List</a> </h5>
+          <h5> <a href="owner"> <i class="fas fa-cart-plus mr-4"></i>authors</a></h5>
+          <h5> <a href="addcategory"> <i class="fas fa-cart-plus mr-4"></i>categories</a></h5>
+           <h5>  <i class="fas fa-cart-plus mr-4"></i>log out</h5>
         </div>
       </div>
+
+      <div class="col-sm-10">
+        <div class="new">
+            <a href="product"> <h4>New Item</h4></a>
+         
+        </div>
+
+         <div class="products">
+           <h3>Products in Store</h3>
+         
+        </div>
+  <posts/>
+      </div>
+
     </div>
   </div>
 </template>
 
+<script>
+import posts from '@/admin/posts.vue'
+export default {
+  components:{
+posts
+  },
+  data(){
+    return{
+
+    }
+  }
+}
+</script>
+
+
 <style scoped>
 .col-sm-2 {
   background-color: black;
+  position: fixed;
+  height: 100%;
+        position: fixed;
+        float: left;
+        width: 200px;
 }
-.row {
-  height: 50em;
+.col-sm-10 {
+ 
+    margin-left: 12em;
+   width: 800px;
+
 }
+
 img {
   max-width: 10em;
   width: 100%;
@@ -49,5 +88,24 @@ h5{
   margin-bottom: 1em;
   font-size: large;
   font-weight: 500;
+}
+.new{
+  margin:0 auto;
+  text-align: center;
+  margin-bottom: 2em;
+  border-radius: 1.5em;
+  background-color: blue;
+  max-width: 10em;
+}
+h4{
+  color: white;
+  padding: 0.6em;
+}
+.products{
+   margin:0 auto;
+  text-align: center;
+  margin-bottom: 2em;
+
+  max-width: 60em;
 }
 </style>

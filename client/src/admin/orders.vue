@@ -4,10 +4,12 @@
   <caption>List of users</caption>
   <thead  class="thead-dark">
     <tr >
-      <th scope="col-sm-3">number</th>
-      <th scope="col-sm-3">Title</th>
-      <th scope="col-sm-3">Image</th>
-      <th scope="col-sm-3">Author</th>
+      <th scope="col-sm-3">Name</th>
+      <th scope="col-sm-3">Order</th>
+      <th scope="col-sm-3">Address</th>
+      <th scope="col-sm-3">Amount</th>
+      <th scope="col-sm-3">Status</th>
+      <th scope="col-sm-3">Detail</th>
     </tr>
   </thead>
   <tbody>
