@@ -3,9 +3,7 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="image">
-          <img
-            :src="product.photo"
-            alt=""
+          <img :src="product.photo" 
           />
         </div>
 
@@ -139,7 +137,7 @@ h3.cart {
   background-color: #f6f5f1;
   border-radius: 1.5em;
   margin-top: -1.5em;
-  
+
   cursor: pointer;
 }
 
