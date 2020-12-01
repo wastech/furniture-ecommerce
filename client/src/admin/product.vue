@@ -5,7 +5,6 @@
       <div class="col-sm-12">
         <form  @submit.prevent="addTask">
           <!-- Category dropdow -->
-
           <div class="input-group">
             <select
               class=" custom-select shadow mb-2"
