@@ -25,7 +25,7 @@ export default {
     };
   },
   created() {
-    axios.get("http://localhost:3000/api/recent/products").then((response) => {
+    axios.get("/api/recent/products").then((response) => {
       this.items = response.data.product;
     });
   },

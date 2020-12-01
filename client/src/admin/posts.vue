@@ -41,13 +41,13 @@ export default {
     };
   },
   created() {
-    axios.get("api/products").then((response) => {
+    axios.get("/api/products").then((response) => {
       this.items = response.data.products;
     });
   },
   methods:{
      deleteTask(_id){
-              axios.delete("api/products/" +_id).then((response) => {
+              axios.delete("/api/products/" +_id).then((response) => {
      
     });
             },

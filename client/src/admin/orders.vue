@@ -10,7 +10,7 @@
       <th scope="col-sm-3">Amount</th>
       <th scope="col-sm-3">Status</th>
       <th scope="col-sm-3">Detail</th>
-      
+
     </tr>
   </thead>
   <tbody>
@@ -44,13 +44,13 @@ export default {
     };
   },
   created() {
-    axios.get("http://localhost:3000/api/products").then((response) => {
+    axios.get("/api/products").then((response) => {
       this.items = response.data.products;
     });
   },
   methods:{
      deleteTask(_id){
-              axios.delete("http://localhost:3000/api/products/" +_id).then((response) => {
+              axios.delete("/api/products/" +_id).then((response) => {
      
     });
             },
