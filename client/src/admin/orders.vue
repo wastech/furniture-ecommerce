@@ -10,6 +10,7 @@
       <th scope="col-sm-3">Amount</th>
       <th scope="col-sm-3">Status</th>
       <th scope="col-sm-3">Detail</th>
+      
     </tr>
   </thead>
   <tbody>
