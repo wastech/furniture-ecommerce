@@ -32,7 +32,7 @@ export default {
     };
   },
   created() {
-    axios.get("http://localhost:3000/api/products").then((response) => {
+    axios.get("/api/products").then((response) => {
       this.items = response.data.products;
       console.log(this.items)
     });
