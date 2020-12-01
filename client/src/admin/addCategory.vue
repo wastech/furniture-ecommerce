@@ -38,14 +38,14 @@ export default {
   },
   methods: {
     fetchTasks() {
-      axios.get("/api/categories").then(response => {
+      axios.get("api/categories").then(response => {
         this.items = response.data.categories;
       });
     },
   
   addTask() {
     axios
-      .post("/api/categories", this.post)
+      .post("api/categories", this.post)
       .then(response=> {
         //this.type = response.data.categories;
         this.fetchTasks();

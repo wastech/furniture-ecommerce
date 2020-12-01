@@ -63,7 +63,7 @@ export default {
   },
   methods:{
    getPost() {
-        axios.get(`api/products/${this._id}`)
+        axios.get(`/api/products/${this._id}`)
           .then(response => {
             this.product = response.data.product
             console.log(this.product)
