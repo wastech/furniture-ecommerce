@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     async getCategories () {
-      axios.get("/api/categories").then(response => {
+      axios.get("api/categories").then(response => {
         this.categories = response.data.categories
       });
     },

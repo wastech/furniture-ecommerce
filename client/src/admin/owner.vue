@@ -78,14 +78,14 @@ export default {
   },
   methods: {
     fetchTasks() {
-      axios.get("http://localhost:3000/api/owners").then((response) => {
+      axios.get("/api/owners").then((response) => {
         this.items = response.data.owners;
       });
     },
 
     addTask() {
       axios
-        .post("http://localhost:3000/api/owners", this.post)
+        .post("/api/owners", this.post)
         .then((response) => {
           //this.type = response.data.categories;
           this.fetchTasks();
