@@ -1,5 +1,5 @@
 module.exports = {
   devServer: {
-    proxy: "http://localhost:3000",
+    proxy: "https://infinite-headland-81013.herokuapp.com",
   },
 };
