@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     fetchTasks() {
-      axios.get("http://localhost:3000/api/categories").then(response => {
+      axios.get("api/categories").then(response => {
         this.items = response.data.categories;
       });
     },

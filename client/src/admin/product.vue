@@ -115,9 +115,9 @@ export default {
     
     fetchTasks() {
       
-     var url1=  axios.get("http://localhost:3000/api/owners").then((response) => {
+     var url1=  axios.get("/api/owners").then((response) => {
         this.owners = response.data.owners;  });
-         var url2=axios.get("http://localhost:3000/api/categories").then((response) => {
+         var url2=axios.get("/api/categories").then((response) => {
         this.categories = response.data.categories;
       })
       Promise.all([url1, url2]).then(function(values){
@@ -130,7 +130,7 @@ export default {
 
     addTask() {
       axios
-        .post("http://localhost:3000/api/products", this.post)
+        .post("/api/products", this.post)
         .then((response) => {
           //this.type = response.data.categories;
           this.fetchTasks();

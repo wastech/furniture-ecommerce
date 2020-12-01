@@ -141,4 +141,7 @@ h3.cart {
   margin-top: -1.5em;
   cursor: pointer;
 }
+
+
+
 </style>

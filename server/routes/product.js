@@ -39,8 +39,11 @@ router.post('/products',  async(req, res) => {
 router.get('/products', async (req, res) => {
   try {
   
-    const products = await Product.find({}).limit(12)
-    .populate("owner category").exec()
+    const products = await Product.find({})
+      .sort("-created")
+      .populate("owner")
+      .populate("category")
+      .exec();
     
     res.json({
       success: true,

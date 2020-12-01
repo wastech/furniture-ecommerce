@@ -196,7 +196,9 @@ export default {
         .post("http://localhost:3000/api/addresses", this.post)
         .then((response) => {
           this.fetchTasks();
-          this.$router.push("/paymentpage")
+          this.$router.push({ name: "paymentid", params: { _id: this._id } });
+         
+          
         
         })
         .catch(function (error) {

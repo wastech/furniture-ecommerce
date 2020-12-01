@@ -52,4 +52,5 @@ export default {
 .col-sm-3{
   margin-bottom: 2em;
 }
+
 </style>
