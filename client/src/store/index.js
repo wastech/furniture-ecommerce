@@ -1,5 +1,4 @@
-import { createStore } from "vuex";
-import createPersistedState from "vuex-persistedstate";
+
 
 export default createStore({
  
@@ -10,7 +9,7 @@ export default createStore({
     user: "",
     isUserLoggedIn: false,
   },
-  plugins: [createPersistedState()],
+ 
   getters: {
     getCart: (state) => state.cart,
     getCharge: (state) => state.charge,
