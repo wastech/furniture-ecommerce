@@ -25,9 +25,7 @@
 import axios from "axios";
 
 export default {
-   props: {
-    category: String,
-  },
+   props: ['category'],
   data(){
     return{
       items:[]
@@ -40,8 +38,9 @@ export default {
         const response = await axios.get(
           `/api/matched/${newProps.category.title}`
         );
+        console.log("this is respone",  response)
         this.items = response.data.product;
-        console.log(this.items)
+        
       },
       deep: true,
     },
