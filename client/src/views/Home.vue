@@ -1,14 +1,12 @@
 <template>
-<div class="main">
- 
-  <div class="container">
-
-    <div class="row">
-    <div class="col-sm-3" v-for="item in items" :key="item._id">
-        <cards :item="item" />
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3" v-for="item in items" :key="item._id">
+          <cards :item="item" />
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -17,14 +15,11 @@
 import axios from "axios";
 import cards from "@/shared/cards.vue";
 
-
-
 export default {
   name: "Home",
   components: {
     // HelloWorld
     cards,
-  
   },
   data() {
     return {
@@ -34,7 +29,6 @@ export default {
   created() {
     axios.get("/api/products").then((response) => {
       this.items = response.data.products;
-      console.log(this.items)
     });
   },
 };
@@ -49,8 +43,7 @@ export default {
   margin-top: 1.5em;
   text-shadow: 1px 1px 1px #000;
 }
-.col-sm-3{
+.col-sm-3 {
   margin-bottom: 2em;
 }
-
 </style>
