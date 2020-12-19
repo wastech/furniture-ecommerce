@@ -44,13 +44,13 @@ export default {
     };
   },
   created() {
-    axios.get("/api/products").then((response) => {
+    axios.get("https://infinite-headland-81013.herokuapp.com/api/products").then((response) => {
       this.items = response.data.products;
     });
   },
   methods:{
      deleteTask(_id){
-              axios.delete("/api/products/" +_id).then((response) => {
+              axios.delete("https://infinite-headland-81013.herokuapp.com/api/products/" +_id).then((response) => {
      
     });
             },

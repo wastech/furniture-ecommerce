@@ -78,14 +78,19 @@ export default {
   },
   methods: {
     fetchTasks() {
-      axios.get("/api/owners").then((response) => {
-        this.items = response.data.owners;
-      });
+      axios
+        .get("https://infinite-headland-81013.herokuapp.com/api/owners")
+        .then((response) => {
+          this.items = response.data.owners;
+        });
     },
 
     addTask() {
       axios
-        .post("/api/owners", this.post)
+        .post(
+          "https://infinite-headland-81013.herokuapp.com/api/owners",
+          this.post
+        )
         .then((response) => {
           //this.type = response.data.categories;
           this.fetchTasks();

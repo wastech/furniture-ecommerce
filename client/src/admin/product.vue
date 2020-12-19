@@ -3,16 +3,17 @@
     <h4>Add a New Product</h4>
     <div class="row">
       <div class="col-sm-12">
-        <form  @submit.prevent="addTask">
+        <form @submit.prevent="addTask">
           <!-- Category dropdow -->
           <div class="input-group">
             <select
-              class=" custom-select shadow mb-2"
+              class="custom-select shadow mb-2"
               id="inputGroupSelect04"
               aria-label="Example select with button addon"
               v-model="post.categoryID"
             >
-              <option selected
+              <option
+                selected
                 v-for="category in categories"
                 :value="category._id"
                 :key="category._id"
@@ -21,7 +22,7 @@
               </option>
             </select>
           </div>
-           
+
           <!-- Owner Dropdown -->
 
           <div class="input-group mb-2">
@@ -31,7 +32,8 @@
               aria-label="Example select with button addon"
               v-model="post.ownerID"
             >
-              <option selected
+              <option
+                selected
                 v-for="owner in owners"
                 :value="owner._id"
                 :key="owner._id"
@@ -103,7 +105,7 @@ export default {
     return {
       post: {},
       owners: [],
-      categories:[]
+      categories: [],
     };
   },
 
@@ -111,25 +113,25 @@ export default {
     this.fetchTasks();
   },
   methods: {
-    
     fetchTasks() {
-      
-     var url1=  axios.get("/api/owners").then((response) => {
-        this.owners = response.data.owners;  });
-         var url2=axios.get("/api/categories").then((response) => {
+      var url1 = axios.get("https://infinite-headland-81013.herokuapp.com/api/owners").then((response) => {
+        this.owners = response.data.owners;
+      });
+      var url2 = axios.get("https://infinite-headland-81013.herokuapp.com/api/categories").then((response) => {
         this.categories = response.data.categories;
-      })
-      Promise.all([url1, url2]).then(function(values){
-  return values
-}).catch(function(err){
-  console.log(err);
-})
-    
+      });
+      Promise.all([url1, url2])
+        .then(function (values) {
+          return values;
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
     },
 
     addTask() {
       axios
-        .post("/api/products", this.post)
+        .post("https://infinite-headland-81013.herokuapp.com/api/products", this.post)
         .then((response) => {
           //this.type = response.data.categories;
           this.fetchTasks();

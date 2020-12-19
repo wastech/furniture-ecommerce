@@ -17,14 +17,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link">
-              <router-link to="/beds"> Beds </router-link>
-              <router-link to="/chairs"> Chairs </router-link>
-              <router-link to="/sofas"> Sofas </router-link>
-              <router-link to="/tables"> Tables </router-link>
-            </a>
-          </li>
+         
+            
+            <li class="nav-item">  <router-link to="/beds"> Beds </router-link></li>
+             <li class="nav-item"> <router-link to="/chairs"> Chairs </router-link></li>
+            <li class="nav-item">  <router-link to="/sofas"> Sofas </router-link></li>
+             <li class="nav-item"> <router-link to="/tables"> Tables </router-link></li>
+         
         </ul>
       </div>
       <router-link tag="a" :to="{ name: 'cart' }"
@@ -109,5 +108,8 @@ input {
 #nav a.router-link-exact-active {
   color: black;
   font-size: 1.5em;
+}
+.nav-item{
+  margin-right: 2em;
 }
 </style>
