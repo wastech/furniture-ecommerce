@@ -36,7 +36,7 @@ export default {
       handler: async function (newProps) {
         console.log("newProps.category", newProps.category.title);
         const response = await axios.get(
-          `/api/matched/${newProps.category.title}`
+          `https://infinite-headland-81013.herokuapp.com/api/matched/${newProps.category.title}`
         );
         console.log("this is respone",  response)
         this.items = response.data.product;

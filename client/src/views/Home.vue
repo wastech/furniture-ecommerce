@@ -27,7 +27,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/products").then((response) => {
+    axios.get("https://infinite-headland-81013.herokuapp.com/api/products").then((response) => {
       this.items = response.data.products;
     });
   },

@@ -182,7 +182,7 @@ export default {
     
     fetchTasks() {
       
-     axios.get("/api/address/countries").then(response => {
+     axios.get("https://infinite-headland-81013.herokuapp.com/api/address/countries").then(response => {
         this.countries = response.data;
        console.log(this.countries);
 }).catch(function(err){
@@ -193,7 +193,7 @@ export default {
 
     address() {
       axios
-        .post("http://localhost:3000/api/addresses", this.post)
+        .post("https://infinite-headland-81013.herokuapp.com/api/addresses", this.post)
         .then((response) => {
           this.fetchTasks();
           this.$router.push({ name: "paymentid", params: { _id: this._id } });

@@ -30,7 +30,7 @@ export default {
    
     methods: {
         fetch() {
-              axios.get(`/api/products/${this.$route.params.title}`).then(response => {
+              axios.get(`https://infinite-headland-81013.herokuapp.com/api/products/${this.$route.params.title}`).then(response => {
         this.items = response.data.product;
         console.log(this.items)
       });

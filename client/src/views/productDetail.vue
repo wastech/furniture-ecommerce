@@ -63,7 +63,7 @@ export default {
   },
   methods:{
    getPost() {
-        axios.get(`/api/products/${this._id}`)
+        axios.get(`https://infinite-headland-81013.herokuapp.com/api/products/${this._id}`)
           .then(response => {
             this.product = response.data.product
           }).catch(res => {
