@@ -87,16 +87,40 @@ const routes = [
   },
 
   {
-    path: "/category/:category",
-    name: "category",
-    props: true,
+    path: "/beds",
+    name: "beds",
+
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Category.vue"),
+      import(/* webpackChunkName: "about" */ "../views/beds.vue"),
+  },
+
+  {
+    path: "/chairs",
+    name: "chairs",
+
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/chairs.vue"),
+  },
+
+  {
+    path: "/tables",
+    name: "tables",
+
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/tables.vue"),
+  },
+
+  {
+    path: "/sofas",
+    name: "sofas",
+
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/sofas.vue"),
   },
   {
     path: "/paymentpage/:_id",
     name: "paymentid",
-  
+
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/paymentId.vue"),
   },

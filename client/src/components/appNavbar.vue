@@ -9,11 +9,14 @@
     </button>
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav   mr-auto ">
-        <li  class="nav-item" v-for="category in categories" :key="category._id">
+        <li  class="nav-item" >
           <a class="nav-link">
-          <router-link  :to = "{name: 'category', params: {category: category.title}}">{{ category.title }}
+          <router-link  to ="/beds"> Beds </router-link>
+          <router-link  to ="/chairs"> Chairs </router-link>
+          <router-link  to ="/sofas"> Sofas </router-link>
+          <router-link  to ="/tables"> Tables </router-link>
           
-          </router-link>
+         
             </a>
         </li>
        

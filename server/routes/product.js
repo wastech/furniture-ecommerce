@@ -87,6 +87,102 @@ router.get('/products/:id', async (req, res) => {
   }
 })
 
+
+router.get("/beds", (req, res, next) => {
+  //Post.find( {'category' : '5e0295317e7b5c07d8f359a4'}) we can do it this way too
+  Product.find()
+    .where("category")
+    .equals("5fc5650723c26e09246cb40f")
+    .populate("category")
+    .populate("owner")
+    .sort({ created_at: -1 })
+    .exec()
+    .then((doc) => {
+      res.status(200).json({
+        count: doc.length,
+        posts: doc,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: err,
+      });
+    });
+});
+
+router.get("/sofas", (req, res, next) => {
+  //Post.find( {'category' : '5e0295317e7b5c07d8f359a4'}) we can do it this way too
+  Product.find()
+    .where("category")
+    .equals("5fc5652623c26e09246cb412")
+    .populate("category")
+    .populate("owner")
+    .sort({ created_at: -1 })
+    .exec()
+    .then((doc) => {
+      res.status(200).json({
+        count: doc.length,
+        posts: doc,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: err,
+      });
+    });
+});
+
+
+
+router.get("/chairs", (req, res, next) => {
+  //Post.find( {'category' : '5e0295317e7b5c07d8f359a4'}) we can do it this way too
+  Product.find()
+    .where("category")
+    .equals("5fc5651b23c26e09246cb411")
+    .populate("category")
+    .populate("owner")
+    .sort({ created_at: -1 })
+    .exec()
+    .then((doc) => {
+      console.log(doc);
+      res.status(200).json({
+        count: doc.length,
+        posts: doc,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+});
+
+router.get("/tables", (req, res, next) => {
+  //Post.find( {'category' : '5e0295317e7b5c07d8f359a4'}) we can do it this way too
+  Product.find()
+    .where("category")
+    .equals("5fc5650f23c26e09246cb410")
+    .populate("category")
+    .populate( "owner")
+    .sort({ created_at: -1 })
+    .exec()
+    .then((doc) => {
+     
+      res.status(200).json({
+        count: doc.length,
+        posts: doc,
+      });
+    })
+    .catch((err) => {
+     
+      res.status(500).json({
+        error: err,
+      });
+    });
+});
+
+
 //recent product
 router.get("/recent/products", async (req, res) => {
   try {
@@ -116,7 +212,6 @@ router.get("/matched/:category", async (req, res) => {
       .populate(" category")
       .populate("owner")
       .exec();
-     console.log("this is ",product);
     res.json({
       product: product,
     });
