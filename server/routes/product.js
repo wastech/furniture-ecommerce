@@ -111,8 +111,8 @@ router.get("/recent/products", async (req, res) => {
 
 router.get("/matched/:category", async (req, res) => {
   try {
-    const product = await Product.findById({
-      category: req.params.category})
+    const product = await Product.find({
+      category: req.params.category_id})
       .populate(" category")
       .populate("owner")
       .exec();
