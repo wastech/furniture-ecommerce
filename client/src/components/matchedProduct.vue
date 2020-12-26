@@ -26,7 +26,7 @@ export default {
   watch: {
     $props: {
       handler: async function (newProps) {
-        console.log("newProps.category", newProps.category._id);
+      //  console.log("newProps.category", newProps.category._id);
         const response = await axios.get(
           `https://infinite-headland-81013.herokuapp.com/api/matched/${newProps.category._id}`
         );

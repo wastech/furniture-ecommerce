@@ -221,7 +221,7 @@ router.get("/matched/:categoryId", async (req, res) => {
       .populate(" category")
       .populate("owner")
       .exec();
-    console.log("hello", product);
+    //console.log("hello", product);
     res.json({
       product: product,
     });
