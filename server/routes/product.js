@@ -211,7 +211,7 @@ router.get("/recent/products", async (req, res) => {
 //? /api/matched/089023436134643350730846627384670346734867386
 
 router.get("/matched/:categoryId", async (req, res) => {
-  console.log("req.params", req.params);
+ 
   try {
     
     const product = await Product.find({
@@ -220,8 +220,9 @@ router.get("/matched/:categoryId", async (req, res) => {
     })
       .populate(" category")
       .populate("owner")
+      .limit(4)
       .exec();
-    //console.log("hello", product);
+  //  console.log("hello", product);
     res.json({
       product: product,
     });

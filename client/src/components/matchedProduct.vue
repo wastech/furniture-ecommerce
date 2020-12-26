@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="row">
-  <div class="col-sm-3" v-for="item in items.reverse().slice(0,4)" :key="item._id">
+  <div class="col-sm-3" v-for="item in items" :key="item._id">
         <cards :item="item" />
       </div>
 
@@ -26,11 +26,12 @@ export default {
   watch: {
     $props: {
       handler: async function (newProps) {
-      //  console.log("newProps.category", newProps.category._id);
+   //  console.log("newProps.category", newProps.category._id);
         const response = await axios.get(
           `https://infinite-headland-81013.herokuapp.com/api/matched/${newProps.category._id}`
+          
         );
-        console.log("this is respone",  response)
+       // console.log("this is respone",  response)
         this.items = response.data.product;
         
       },
