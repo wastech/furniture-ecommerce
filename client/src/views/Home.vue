@@ -2,7 +2,7 @@
   <div class="main">
     <div class="container">
       <div class="row">
-        <div class="col-sm-3" v-for="item in items" :key="item._id">
+        <div class="col-sm-3 col-xs-12" v-for="item in items" :key="item._id">
           <cards :item="item" />
         </div>
       </div>
@@ -27,9 +27,11 @@ export default {
     };
   },
   created() {
-    axios.get("https://infinite-headland-81013.herokuapp.com/api/products").then((response) => {
-      this.items = response.data.products;
-    });
+    axios
+      .get("https://infinite-headland-81013.herokuapp.com/api/products")
+      .then((response) => {
+        this.items = response.data.products;
+      });
   },
 };
 </script>

@@ -40,5 +40,10 @@ img {
   object-fit: contain;
 }
 
+@media only screen and (max-width: 780px) {
+  .container{
+    max-width: 95%;
+  }
+}
 
 </style>

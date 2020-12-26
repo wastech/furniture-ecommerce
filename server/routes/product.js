@@ -204,11 +204,20 @@ router.get("/recent/products", async (req, res) => {
   }
 });
 // category
+//! matched category route
 
-router.get("/matched/:category", async (req, res) => {
+//? req.params { category: 'chairs' }
+//? /api/matched/chairs
+//? /api/matched/089023436134643350730846627384670346734867386
+
+router.get("/matched/:categoryId", async (req, res) => {
+  console.log("req.params", req.params);
   try {
+    
     const product = await Product.find({
-      category: req.params.category_id})
+
+      category: req.params.categoryId
+    })
       .populate(" category")
       .populate("owner")
       .exec();

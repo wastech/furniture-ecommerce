@@ -1,30 +1,22 @@
 <template>
-  <div class="container">
+  <div class="">
     <div class="row">
-    <div class="col-sm-3"   v-for="item in items" :key="item._id">
-       <div class="card" style="width: 100%;">
-      <router-link
-        v-bind:to="{ name: 'productdetail', params: { id: item._id } }"
-      >
-        <img :src="item.photo" class="card-img-top" alt="item.name" />
-      </router-link>
-      <div class="card-body">
-        <h5 class="card-title">{{ item.name }}</h5>
-        <p class="card-text">
-          ${{ item.price }} <span><i class="fas fa-cart-plus"></i></span>
-        </p>
+  <div class="col-sm-3" v-for="item in items.reverse().slice(0,4)" :key="item._id">
+        <cards :item="item" />
       </div>
-    </div>
-
-    </div>
 
   </div>
   </div>
 </template>
 <script>
 import axios from "axios";
+import cards from "@/shared/cards.vue";
 
 export default {
+  components: {
+    // HelloWorld
+    cards,
+  },
    props: ['category'],
   data(){
     return{
@@ -34,9 +26,9 @@ export default {
   watch: {
     $props: {
       handler: async function (newProps) {
-        console.log("newProps.category", newProps.category.title);
+        console.log("newProps.category", newProps.category._id);
         const response = await axios.get(
-          `https://infinite-headland-81013.herokuapp.com/api/matched/${newProps.category.title}`
+          `https://infinite-headland-81013.herokuapp.com/api/matched/${newProps.category._id}`
         );
         console.log("this is respone",  response)
         this.items = response.data.product;
