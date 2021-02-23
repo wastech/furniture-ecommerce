@@ -1,7 +1,11 @@
 <template>
-  <div >
+  <div>
     <div class="row">
-    <div class="col-sm-3" v-for="item in items" :key="item._id">
+      <div
+        class="col-sm-12 col-sm-12  col-md-6 col-lg-4 col-xl-3"
+        v-for="item in items"
+        :key="item._id"
+      >
         <cards :item="item" />
       </div>
     </div>
@@ -25,9 +29,11 @@ export default {
     };
   },
   created() {
-    axios.get("https://infinite-headland-81013.herokuapp.com/api/recent/products").then((response) => {
-      this.items = response.data.product;
-    });
+    axios
+      .get("https://infinite-headland-81013.herokuapp.com/api/recent/products")
+      .then((response) => {
+        this.items = response.data.product;
+      });
   },
 };
 </script>
@@ -41,7 +47,7 @@ export default {
   margin-top: 1.5em;
   text-shadow: 1px 1px 1px #000;
 }
-.col-sm-3{
+.col-sm-3 {
   margin-bottom: 2em;
 }
 </style>

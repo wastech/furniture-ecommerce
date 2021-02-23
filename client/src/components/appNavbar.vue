@@ -1,12 +1,10 @@
 <template>
-  <div class="hello">
+  <div class="hello container">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <a class="navbar-brand">
         <router-link to="/"> Products</router-link>
       </a>
       <button
-        class="navbar-toggler"
-        type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
@@ -80,7 +78,7 @@ export default {
     },
   },
   watch: {
-    url: function () {
+    url: function() {
       console.log(this.url);
       this.$router.go();
     },

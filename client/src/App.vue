@@ -1,17 +1,16 @@
 <template>
-  <div id="nav">
-   <appNavbar/>
-     <router-view />
+  <div id="nav" class="container">
+    <appNavbar />
+    <router-view :key="$route.path" />
   </div>
- 
 </template>
 <script>
-import appNavbar from '@/components/appNavbar'
+import appNavbar from "@/components/appNavbar";
 export default {
-  components:{
-    appNavbar
-  }
-}
+  components: {
+    appNavbar,
+  },
+};
 </script>
 
 <style>

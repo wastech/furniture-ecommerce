@@ -2,7 +2,11 @@
   <div class="main">
     <div class="container">
       <div class="row">
-        <div class="col-sm-3 col-xs-12" v-for="item in items" :key="item._id">
+        <div
+          class="col-sm-4  col-md-6 col-lg-4 col-xl-3"
+          v-for="item in items"
+          :key="item._id"
+        >
           <cards :item="item" />
         </div>
       </div>
@@ -36,10 +40,6 @@ export default {
 };
 </script>
 <style scoped>
-.container {
-  max-width: 95%;
-  width: 100%;
-}
 .title h1 {
   margin-bottom: 1.5em;
   margin-top: 1.5em;

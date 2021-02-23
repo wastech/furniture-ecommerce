@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
 
 const routes = [
   {
@@ -125,13 +125,14 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/paymentId.vue"),
   },
 ];
- 
-
-
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
 
-export default router
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  },
+});
+
+export default router;

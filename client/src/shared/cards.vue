@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="card" style="width: 100%;">
+  <div class="">
+    <div class="card">
       <router-link
         v-bind:to="{ name: 'productdetail', params: { id: item._id } }"
       >
@@ -24,11 +24,17 @@ export default {
 .card {
   box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset,
     -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
-  height: 50vh;
+
+  margin-bottom: 1.5em;
 }
 .card-title {
   color: #534b4b;
   font-size: medium;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  font-weight: 700;
+  -webkit-box-orient: vertical;
 }
 .fas {
   font-size: 2em;
@@ -36,14 +42,27 @@ export default {
   margin-bottom: 0em;
 }
 img {
-  height: 30vh;
+  height: 25vh;
+  width: 100%;
   object-fit: contain;
 }
-
-@media only screen and (max-width: 780px) {
-  .container{
-    max-width: 95%;
+@media only screen and (max-width: 576px) {
+  img {
+    height: 30vh;
+    object-fit: contain;
   }
 }
 
+@media only screen and (min-width: 768px) {
+  img {
+    height: 20vh;
+    object-fit: contain;
+  }
+}
+@media only screen and (min-width: 992px) {
+  img {
+    height: 20vh;
+    object-fit: contain;
+  }
+}
 </style>
