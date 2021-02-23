@@ -5,6 +5,7 @@
         <router-link to="/"> Products</router-link>
       </a>
       <button
+        class="navbar-toggler"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
