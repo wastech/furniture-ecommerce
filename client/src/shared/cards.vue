@@ -46,22 +46,27 @@ img {
   width: 100%;
   object-fit: contain;
 }
+.card {
+  margin-top: 1em;
+}
 @media only screen and (max-width: 576px) {
   img {
-    height: 25vh;
+    height: 30vh;
     object-fit: contain;
+  }
+  .card {
+    margin-top: 1em;
   }
 }
 
 @media only screen and (min-width: 768px) {
   img {
-    height: 25vh;
-    object-fit: contain;
+    height: 20vh;
   }
 }
 @media only screen and (min-width: 992px) {
   img {
-    height: 25vh;
+    height: 20vh;
     object-fit: contain;
   }
 }
