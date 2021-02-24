@@ -26,11 +26,18 @@ export default {
       items: [],
     };
   },
-  created() {
-    axios.get("https://infinite-headland-81013.herokuapp.com/api/beds").then((response) => {
-      //console.log("response", response)
-      this.items = response.data.posts;
-    });
+  mounted() {
+    this.getposts();
+  },
+  methods: {
+    getposts() {
+      axios
+        .get("https://infinite-headland-81013.herokuapp.com/api/beds")
+        .then((response) => {
+          //console.log("response", response)
+          this.items = response.data.posts;
+        });
+    },
   },
 };
 </script>

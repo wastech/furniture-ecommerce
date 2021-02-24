@@ -30,12 +30,17 @@ export default {
       items: [],
     };
   },
-  created() {
-    axios
-      .get("https://infinite-headland-81013.herokuapp.com/api/products")
-      .then((response) => {
-        this.items = response.data.products;
-      });
+  methods: {
+    getposts() {
+      axios
+        .get("https://infinite-headland-81013.herokuapp.com/api/products")
+        .then((response) => {
+          this.items = response.data.products;
+        });
+    },
+  },
+  mounted() {
+    this.getposts();
   },
 };
 </script>

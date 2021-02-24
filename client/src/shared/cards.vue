@@ -48,20 +48,20 @@ img {
 }
 @media only screen and (max-width: 576px) {
   img {
-    height: 30vh;
+    height: 25vh;
     object-fit: contain;
   }
 }
 
 @media only screen and (min-width: 768px) {
   img {
-    height: 20vh;
+    height: 25vh;
     object-fit: contain;
   }
 }
 @media only screen and (min-width: 992px) {
   img {
-    height: 20vh;
+    height: 25vh;
     object-fit: contain;
   }
 }
