@@ -30,7 +30,7 @@ export default {
       items: [],
     };
   },
-  mounted() {
+  async mounted() {
     this.getposts();
   },
   methods: {
