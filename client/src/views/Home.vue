@@ -39,7 +39,7 @@ export default {
         });
     },
   },
-  mounted() {
+  async mounted() {
     this.getposts();
   },
 };
