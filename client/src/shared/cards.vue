@@ -9,7 +9,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ item.name }}</h5>
         <p class="card-text">
-          ${{ item.price }} <span><i class="fas fa-cart-plus"></i></span>
+          #{{ item.price }} <span><i class="fas fa-cart-plus"></i></span>
         </p>
       </div>
     </div>
