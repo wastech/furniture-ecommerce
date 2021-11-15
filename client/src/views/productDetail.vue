@@ -9,7 +9,7 @@
         <div class="name">
           <h3>
             {{ product.name }}
-            <h5 class="price">${{ product.price }}</h5>
+            <h5 class="price">#{{ product.price }}</h5>
           </h3>
         </div>
 
