@@ -49,12 +49,6 @@ export default {
       url: this.$route.params.id,
     };
   },
-  /* created() {
-   axios.get("/api/categories").then(response => {
-        this.categories = response.data.categories
-      });
-    
-  },*/
   computed: {
     cart() {
       return this.$store.getters.getCart;
