@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": ">=14 <18"
+    "node": "18.14.1"
     },
   "author": "wastech",
   "license": "MIT",
