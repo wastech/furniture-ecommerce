@@ -60,7 +60,7 @@ export default {
   methods: {
     async getCategories() {
       axios
-        .get("https://infinite-headland-81013.herokuapp.com/api/categories")
+        .get("https://e-furniture-7e2p.onrender.com/api/categories")
         .then((response) => {
           this.categories = response.data.categories;
         });
@@ -73,7 +73,7 @@ export default {
     },
   },
   watch: {
-    url: function() {
+    url: function () {
       console.log(this.url);
       this.$router.go();
     },

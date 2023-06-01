@@ -1,5 +1,5 @@
 module.exports = {
   devServer: {
-    proxy: "https://infinite-headland-81013.herokuapp.com",
-  }
+    proxy: "https://e-furniture-7e2p.onrender.com",
+  },
 };

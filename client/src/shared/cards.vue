@@ -44,7 +44,7 @@ export default {
 img {
   height: 25vh;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .card {
   margin-top: 1em;
@@ -52,7 +52,7 @@ img {
 @media only screen and (max-width: 576px) {
   img {
     height: 30vh;
-    object-fit: contain;
+    object-fit: cover;
   }
   .card {
     margin-top: 1em;
@@ -67,7 +67,7 @@ img {
 @media only screen and (min-width: 992px) {
   img {
     height: 20vh;
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 </style>

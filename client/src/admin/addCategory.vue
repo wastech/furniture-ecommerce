@@ -1,5 +1,5 @@
 <template>
-  <div class="container ">
+  <div class="container">
     <form @submit.prevent="addTask" class="mb-3">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -12,7 +12,7 @@
         />
       </div>
 
-      <button type="submit" class="btn btn-primary" >Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
     <!---  categories-->
@@ -38,23 +38,25 @@ export default {
   },
   methods: {
     fetchTasks() {
-      axios.get("https://infinite-headland-81013.herokuapp.com/api/categories").then(response => {
-        this.items = response.data.categories;
-      });
+      axios
+        .get("https://e-furniture-7e2p.onrender.com/api/categories")
+        .then((response) => {
+          this.items = response.data.categories;
+        });
     },
-  
-  addTask() {
-    axios
-      .post("https://infinite-headland-81013.herokuapp.com/api/categories", this.post)
-      .then(response=> {
-        //this.type = response.data.categories;
-        this.fetchTasks();
-        console.log(this.post);
-      })
-      .catch(function (error) {
-        console.log(error);
-    });
-  }
-  }
+
+    addTask() {
+      axios
+        .post("https://e-furniture-7e2p.onrender.com/api/categories", this.post)
+        .then((response) => {
+          //this.type = response.data.categories;
+          this.fetchTasks();
+          console.log(this.post);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>

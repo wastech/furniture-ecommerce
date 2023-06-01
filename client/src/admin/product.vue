@@ -114,12 +114,16 @@ export default {
   },
   methods: {
     fetchTasks() {
-      var url1 = axios.get("https://infinite-headland-81013.herokuapp.com/api/owners").then((response) => {
-        this.owners = response.data.owners;
-      });
-      var url2 = axios.get("https://infinite-headland-81013.herokuapp.com/api/categories").then((response) => {
-        this.categories = response.data.categories;
-      });
+      var url1 = axios
+        .get("https://e-furniture-7e2p.onrender.com/api/owners")
+        .then((response) => {
+          this.owners = response.data.owners;
+        });
+      var url2 = axios
+        .get("https://e-furniture-7e2p.onrender.com/api/categories")
+        .then((response) => {
+          this.categories = response.data.categories;
+        });
       Promise.all([url1, url2])
         .then(function (values) {
           return values;
@@ -131,7 +135,7 @@ export default {
 
     addTask() {
       axios
-        .post("https://infinite-headland-81013.herokuapp.com/api/products", this.post)
+        .post("https://e-furniture-7e2p.onrender.com/api/products", this.post)
         .then((response) => {
           //this.type = response.data.categories;
           this.fetchTasks();

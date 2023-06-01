@@ -63,9 +63,7 @@ export default {
   methods: {
     getPost() {
       axios
-        .get(
-          `https://infinite-headland-81013.herokuapp.com/api/products/${this._id}`
-        )
+        .get(`https://e-furniture-7e2p.onrender.com/api/products/${this._id}`)
         .then((response) => {
           this.product = response.data.product;
         })

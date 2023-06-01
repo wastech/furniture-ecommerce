@@ -79,7 +79,7 @@ export default {
   methods: {
     fetchTasks() {
       axios
-        .get("https://infinite-headland-81013.herokuapp.com/api/owners")
+        .get("https://e-furniture-7e2p.onrender.com/api/owners")
         .then((response) => {
           this.items = response.data.owners;
         });
@@ -87,10 +87,7 @@ export default {
 
     addTask() {
       axios
-        .post(
-          "https://infinite-headland-81013.herokuapp.com/api/owners",
-          this.post
-        )
+        .post("https://e-furniture-7e2p.onrender.com/api/owners", this.post)
         .then((response) => {
           //this.type = response.data.categories;
           this.fetchTasks();

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div
-          class="col-sm-4  col-md-6 col-lg-4 col-xl-3"
+          class="col-sm-4 col-md-6 col-lg-4 col-xl-3"
           v-for="item in items"
           :key="item._id"
         >
@@ -33,7 +33,7 @@ export default {
   methods: {
     getposts() {
       axios
-        .get("https://infinite-headland-81013.herokuapp.com/api/products")
+        .get("https://e-furniture-7e2p.onrender.com/api/products")
         .then((response) => {
           this.items = response.data.products;
         });

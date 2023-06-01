@@ -182,7 +182,7 @@ export default {
     
     fetchTasks() {
       
-     axios.get("https://infinite-headland-81013.herokuapp.com/api/address/countries").then(response => {
+     axios.get("https://e-furniture-7e2p.onrender.com/api/address/countries").then(response => {
         this.countries = response.data;
        console.log(this.countries);
 }).catch(function(err){
@@ -193,7 +193,7 @@ export default {
 
     address() {
       axios
-        .post("https://infinite-headland-81013.herokuapp.com/api/addresses", this.post)
+        .post("https://e-furniture-7e2p.onrender.com/api/addresses", this.post)
         .then((response) => {
           this.fetchTasks();
           this.$router.push({ name: "paymentid", params: { _id: this._id } });

@@ -1,9 +1,9 @@
-import axios from 'axios'
-import store from '@/store'
+import axios from "axios";
+import store from "@/store";
 
 export default () => {
   return axios.create({
-    baseURL: `https://infinite-headland-81013.herokuapp.com/`,
+    baseURL: `https://e-furniture-7e2p.onrender.com`,
     headers: {
       Authorization: `Bearer ${store.state.token}`,
     },
@@ -13,4 +13,4 @@ export default () => {
     //   return JSON.parse(data);
     // }],
   });
-}
+};
