@@ -1,72 +1,59 @@
-const express = require('express');
-const router = express.Router()
-const Product = require('../models/product.js')
-const Category = require("../models/Category.js");
-
-
-
+const express = require("express");
+const router = express.Router();
+const Product = require("../models/product.js");
+const Category = require("../models/category.js");
 
 // POST create
-router.post('/products',  async(req, res) => {
+router.post("/products", async (req, res) => {
   try {
+    let product = new Product();
+    product.owner = req.body.ownerID;
+    product.category = req.body.categoryID;
+    product.name = req.body.name;
+    product.description = req.body.description;
+    product.photo = req.body.photo;
+    product.price = req.body.price;
 
-    let product = new Product()
-    product.owner = req.body.ownerID
-    product.category = req.body.categoryID
-    product.name = req.body.name
-    product.description = req.body.description
-    product.photo = req.body.photo
-    product.price = req.body.price
-    
-    
     await product.save();
 
     res.json({
       status: true,
-      msg: 'Successfuly create new Product!!'
-    })
-
-  } catch(err) {
+      msg: "Successfuly create new Product!!",
+    });
+  } catch (err) {
     res.status(500).json({
       success: false,
-      message: err.message
-    })
+      message: err.message,
+    });
   }
-})
+});
 
 // Get all product
 
-router.get('/products', async (req, res) => {
+router.get("/products", async (req, res) => {
   try {
-  
     const products = await Product.find({})
       .sort("-created")
       .populate("owner")
       .populate("category")
       .exec();
-    
+
     res.json({
       success: true,
       products: products,
-    
-    })
-
+    });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: err.message
-    })
+      message: err.message,
+    });
   }
-})
-
-
+});
 
 // Get a single product
 
-
-router.get('/products/:id', async (req, res) => {
+router.get("/products/:id", async (req, res) => {
   try {
-
     const product = await Product.findOne({
       _id: req.params.id,
     })
@@ -75,18 +62,15 @@ router.get('/products/:id', async (req, res) => {
       .exec();
     res.json({
       success: true,
-      product: product
-    })
-   
-
+      product: product,
+    });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: err.message
-    })
+      message: err.message,
+    });
   }
-})
-
+});
 
 router.get("/beds", (req, res, next) => {
   //Post.find( {'category' : '5e0295317e7b5c07d8f359a4'}) we can do it this way too
@@ -132,8 +116,6 @@ router.get("/sofas", (req, res, next) => {
     });
 });
 
-
-
 router.get("/chairs", (req, res, next) => {
   //Post.find( {'category' : '5e0295317e7b5c07d8f359a4'}) we can do it this way too
   Product.find()
@@ -164,24 +146,21 @@ router.get("/tables", (req, res, next) => {
     .where("category")
     .equals("5fc5650f23c26e09246cb410")
     .populate("category")
-    .populate( "owner")
+    .populate("owner")
     .sort({ created_at: -1 })
     .exec()
     .then((doc) => {
-     
       res.status(200).json({
         count: doc.length,
         posts: doc,
       });
     })
     .catch((err) => {
-     
       res.status(500).json({
         error: err,
       });
     });
 });
-
 
 //recent product
 router.get("/recent/products", async (req, res) => {
@@ -211,22 +190,18 @@ router.get("/recent/products", async (req, res) => {
 //? /api/matched/089023436134643350730846627384670346734867386
 
 router.get("/matched/:categoryId", async (req, res) => {
- 
   try {
-    
     const product = await Product.find({
-
-      category: req.params.categoryId
+      category: req.params.categoryId,
     })
       .populate(" category")
       .populate("owner")
       .limit(4)
       .exec();
-  //  console.log("hello", product);
+    //  console.log("hello", product);
     res.json({
       product: product,
     });
-   
   } catch (err) {
     res.status(500).json({
       success: false,
@@ -235,14 +210,14 @@ router.get("/matched/:categoryId", async (req, res) => {
   }
 });
 
-
 // Put
 
-router.put('/products/:id', async (req, res) => {
+router.put("/products/:id", async (req, res) => {
   try {
-
-    const product = await Product.findOneAndUpdate({
-      _id: req.params.id},
+    const product = await Product.findOneAndUpdate(
+      {
+        _id: req.params.id,
+      },
       {
         $set: {
           title: req.body.title,
@@ -250,52 +225,45 @@ router.put('/products/:id', async (req, res) => {
           category: req.body.categoryID,
           photo: req.file.location,
           description: req.body.description,
-          
-          owner: req.body.ownerID
-        }
+
+          owner: req.body.ownerID,
+        },
       },
       {
-        upsert:true
+        upsert: true,
       }
-    
-    )
+    );
     res.json({
       success: true,
-      updatedProduct: product
-    })
-
+      updatedProduct: product,
+    });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: err.message
-    })
+      message: err.message,
+    });
   }
-})
-
+});
 
 // Delete
 
-router.delete('/products/:id', async (req, res) => {
+router.delete("/products/:id", async (req, res) => {
   try {
-
     const deletedProduct = await Product.findOneAndDelete({
-      _id: req.params.id
-    })
+      _id: req.params.id,
+    });
     if (deletedProduct) {
       res.json({
         success: true,
-        message: 'Successfully deleted'
-      })
+        message: "Successfully deleted",
+      });
     }
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: err.message
-    })
+      message: err.message,
+    });
   }
-})
+});
 
-
-
-
-module.exports = router
+module.exports = router;
